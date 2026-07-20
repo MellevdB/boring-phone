@@ -1,0 +1,23 @@
+name: BoringPhone
+options:
+  bundleIdPrefix: com.melle
+  deploymentTarget:
+    iOS: "16.4"
+  createIntermediateGroups: true
+targets:
+  BoringPhone:
+    type: application
+    platform: iOS
+    sources:
+      - BoringPhone
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.melle.boringphone
+        INFOPLIST_FILE: BoringPhone/Info.plist
+        CODE_SIGN_ENTITLEMENTS: BoringPhone/BoringPhone.entitlements
+        TARGETED_DEVICE_FAMILY: "1"
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: "1.0"
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: false
+        ENABLE_PREVIEWS: true
