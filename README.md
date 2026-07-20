@@ -24,8 +24,11 @@ opened — not from the home screen, not from search, not from notifications.
 
 - iPhone XS or newer, iOS 16.4+ (NFC background reading + App Intents)
 - A Mac with **Xcode 15+**
-- An Apple ID (free works for personal installs; apps expire after 7 days
-  and need re-installing — a paid developer account extends that to a year)
+- A **paid Apple Developer Program membership** (€99/yr) — Apple does not
+  allow the Family Controls capability on free Personal Teams, so the app
+  cannot be signed without it. No budget? **[FREE-SETUP.md](FREE-SETUP.md)**
+  gets you 80% of the way with zero code: NFC-toggled minimal layout via
+  Focus, always-on blocking via Screen Time limits.
 - One NFC tag (NTAG213/215/216 stickers all work, ~€1)
 
 ## Build & install
@@ -59,7 +62,7 @@ the Boring Focus, the minimal home screen, and the NFC automation.
   the app or edit the automation. SETUP.md has a hardening section
   (Screen Time passcode + blocking app deletion) that makes cheating
   genuinely annoying.
-- With a free Apple ID the install expires weekly; re-run from Xcode.
+- Development installs expire after a year; plug in and Run again to renew.
 
 ## Repo layout
 
