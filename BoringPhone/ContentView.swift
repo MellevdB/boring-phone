@@ -77,7 +77,7 @@ struct ContentView: View {
     }
 
     private var configSection: some View {
-        Section("Configuration") {
+        Section {
             Button {
                 showPicker = true
             } label: {
@@ -92,6 +92,8 @@ struct ContentView: View {
 
             LabeledContent("Allowed apps",
                            value: "\(modeManager.allowedSelection.applicationTokens.count)")
+        } header: {
+            Text("Configuration")
         } footer: {
             Text("Strict mode hides the in-app off switch while boring mode is on, so only your NFC tag automation can bring the phone back. Configure it before turning boring mode on.")
         }
