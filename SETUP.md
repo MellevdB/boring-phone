@@ -11,11 +11,10 @@ Do these once, in order, after installing the app from Xcode. ~15 minutes.
    **Important: also select Boring Phone itself and the Shortcuts app** —
    otherwise the app shields itself and your escape hatches along with
    everything else.
-3. Leave **Strict mode** off until everything below works. Turn it on later
-   for real commitment: it hides the in-app off switch, so only the tag
-   automation can unlock the phone.
-4. Test: toggle boring mode on in the app, try opening Instagram/whatever —
-   you should hit the shield screen. Toggle it back off.
+
+There is deliberately no on/off switch in the app itself — locking and
+unlocking only ever happens through the NFC automation in the next section.
+You'll do your first real test there.
 
 ## 2. Create the "Boring" Focus (the different layout)
 
@@ -45,7 +44,14 @@ Do these once, in order, after installing the app from Xcode. ~15 minutes.
 5. Save. Done.
 
 **Test:** tap the phone on the tag → shield goes up, home screen collapses to
-the minimal page. Tap again → everything back.
+the minimal page, and the app's status screen shows **LOCKED**. Tap again →
+everything back, status shows **UNLOCKED**.
+
+Before wiring the tag, you can sanity-check the shield alone: in the
+Shortcuts app, open the "boring tag" automation and tap the **Toggle Boring
+Mode** action's play button, or run it from My Shortcuts if you saved a
+duplicate there. It flips the same intent the tag does — useful for
+verifying the app picker worked before you trust it to a tap.
 
 ## 4. Hardening (optional, recommended)
 
@@ -57,8 +63,6 @@ Make cheating annoying enough that you won't bother:
 2. **Settings → Screen Time → Content & Privacy Restrictions → iTunes & App
    Store Purchases → Deleting Apps → Don't Allow** — now you can't delete
    the Boring Phone app to escape the shield.
-3. In the app, enable **Strict mode** — removes the in-app off switch while
-   boring mode is on.
 
 Remaining escape hatches (deliberately not closed — this is a commitment
 device, not a prison): you could still open Shortcuts and run the toggle
@@ -73,14 +77,14 @@ mode. Careful: then *only* the tag can save you — don't lose the tag.
   a real phone.
 ## 6. Lost the tag? Escape routes, easiest first
 
-1. **Shortcuts app** (you kept it allowed, right?) → My Shortcuts → run
-   **Toggle Boring Mode** manually.
-2. **Boring Phone app** → off switch (works unless strict mode is on).
-3. **Any new NFC tag**: Shortcuts → Automation → + → NFC → scan the new tag
+1. **Shortcuts app** (you kept it allowed, right?) → open the "boring tag"
+   automation → run its **Toggle Boring Mode** action manually. The app has
+   no off switch of its own on purpose — this is the sanctioned back door.
+2. **Any new NFC tag**: Shortcuts → Automation → + → NFC → scan the new tag
    → add the Toggle Boring Mode action. Tags are ~€1; better yet, register
    a **backup tag now** and keep it in a drawer.
-4. **Settings → Screen Time** (Settings is never blockable): revoke Boring
+3. **Settings → Screen Time** (Settings is never blockable): revoke Boring
    Phone's Screen Time access, or delete the app — either clears the shield.
    Blocked by the hardening passcode? That's it doing its job: whoever holds
    the passcode can undo it.
-5. Nuclear: reinstall from Xcode — a fresh install starts with the shield off.
+4. Nuclear: reinstall from Xcode — a fresh install starts with the shield off.

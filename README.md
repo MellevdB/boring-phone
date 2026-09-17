@@ -78,7 +78,7 @@ entitlement approval, on top of the paid membership — that doc explains it.
 project.yml                 XcodeGen spec (generates the .xcodeproj)
 BoringPhone/
   BoringPhoneApp.swift      App entry point
-  ContentView.swift         Status, controls, app picker, strict mode
+  ContentView.swift         Status screen + app picker (no manual lock control)
   ModeManager.swift         Shield on/off + persistence
   Intents.swift             App Intents that Shortcuts/NFC call
   Info.plist, *.entitlements, Assets.xcassets

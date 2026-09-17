@@ -5,6 +5,12 @@ import ManagedSettings
 
 /// Owns all boring-mode state: the allow-list of apps, whether boring mode is
 /// active, and applying/clearing the Screen Time shield.
+///
+/// There is deliberately no public "manual unlock" path here that the app's
+/// own UI can reach. `setBoringMode`/`toggle` exist only for the App Intents
+/// in Intents.swift, which are called exclusively by the Shortcuts NFC
+/// automation — so locking and unlocking the phone always goes through the
+/// tag, never a button in this app.
 final class ModeManager: ObservableObject {
     static let shared = ModeManager()
 
@@ -13,22 +19,14 @@ final class ModeManager: ObservableObject {
 
     private enum Keys {
         static let boringModeOn = "boringModeOn"
-        static let strictMode = "strictMode"
         static let selection = "allowedSelection"
     }
 
-    @Published var isBoringModeOn: Bool {
+    @Published private(set) var isBoringModeOn: Bool {
         didSet {
             defaults.set(isBoringModeOn, forKey: Keys.boringModeOn)
             applyShield()
         }
-    }
-
-    /// When strict mode is on, the in-app "off" switch is hidden while boring
-    /// mode is active — only the NFC tag (via the Shortcuts automation running
-    /// the Disable/Toggle intent) can turn it off.
-    @Published var isStrictMode: Bool {
-        didSet { defaults.set(isStrictMode, forKey: Keys.strictMode) }
     }
 
     /// Apps the user is still allowed to use while in boring mode.
@@ -42,7 +40,6 @@ final class ModeManager: ObservableObject {
 
     private init() {
         isBoringModeOn = defaults.bool(forKey: Keys.boringModeOn)
-        isStrictMode = defaults.bool(forKey: Keys.strictMode)
         if let data = defaults.data(forKey: Keys.selection),
            let saved = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data) {
             allowedSelection = saved
