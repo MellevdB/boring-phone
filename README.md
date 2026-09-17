@@ -54,6 +54,14 @@ In Xcode:
 Then follow **[SETUP.md](SETUP.md)** for the phone-side setup: allowed apps,
 the Boring Focus, the minimal home screen, and the NFC automation.
 
+## Sharing it via TestFlight
+
+Want friends running this too? See **[ci/TESTFLIGHT.md](ci/TESTFLIGHT.md)** —
+one script (`ci/release_to_testflight.sh`) archives, signs, and uploads a
+build using an App Store Connect API key. Note: distributing a build (even
+internally) needs Apple's separate Family Controls **distribution**
+entitlement approval, on top of the paid membership — that doc explains it.
+
 ## Honest limitations
 
 - **Phone, Messages, Settings can't be blocked** by iOS at all — which is
