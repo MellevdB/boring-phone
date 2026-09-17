@@ -21,3 +21,5 @@ targets:
         SWIFT_VERSION: "5.9"
         GENERATE_INFOPLIST_FILE: false
         ENABLE_PREVIEWS: true
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 63PJ7G747S
