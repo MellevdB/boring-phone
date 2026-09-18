@@ -3,7 +3,7 @@
 ## One-time prerequisites (you, not me — see below)
 
 1. **App Store Connect app record.** appstoreconnect.apple.com → My Apps → **+**
-   → New App → iOS → Name "Boring Phone" → Bundle ID `com.melle.boringphone`
+   → New App → iOS → Name "Bored Phone" → Bundle ID `com.melle.boringphone`
    → any SKU. Our API key can't create this (needs Admin role), so this step
    is manual, once.
 2. **Family Controls (Distribution) entitlement approval from Apple.**

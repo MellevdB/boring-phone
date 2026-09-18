@@ -113,7 +113,7 @@ struct ContentView: View {
                 .tracking(4)
                 .foregroundStyle(theme.accent)
 
-            Text(modeManager.isBoringModeOn ? "Boring Phone is active" : "Full access")
+            Text(modeManager.isBoringModeOn ? "Bored Phone is active" : "Full access")
                 .font(.system(size: 26, weight: .medium, design: .rounded))
                 .foregroundStyle(theme.textPrimary)
 
@@ -243,7 +243,7 @@ struct ContentView: View {
                 Text("Before you lock: include these two")
                     .font(.system(size: 14, weight: .bold))
                     .foregroundStyle(theme.textPrimary)
-                Text("Boring Phone and Shortcuts must both be in your allowed apps, or they'll shield themselves too.")
+                Text("Bored Phone and Shortcuts must both be in your allowed apps, or they'll shield themselves too.")
                     .font(.system(size: 12.5))
                     .foregroundStyle(theme.textTertiary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -285,9 +285,9 @@ struct ContentView: View {
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(theme.textPrimary)
 
-                setupStep(number: "1", text: "Choose your allowed apps above, and include Boring Phone + Shortcuts so they don't lock themselves out.")
-                setupStep(number: "2", text: "In Shortcuts → Automation → NFC, scan your tag, set “Run Immediately”, and add the action “Toggle Boring Phone”. Opened Boring Phone at least once already? It should show up when you search “Boring”.")
+                setupStep(number: "1", text: "Choose your allowed apps above, and include Bored Phone + Shortcuts so they don't lock themselves out.")
                 homeScreenStep
+                setupStep(number: "3", text: "In Shortcuts → Automation → NFC, scan your tag, set “Run Immediately”, and add two actions: “Toggle Bored Phone”, then “Set Focus” → toggle the Focus you just made. Opened Bored Phone at least once already? “Toggle Bored Phone” should show up when you search “Bored”.")
                 setupStep(number: "4", text: "That tag is now the only key.")
 
                 HStack(spacing: 10) {
@@ -300,7 +300,7 @@ struct ContentView: View {
 
     private var homeScreenStep: some View {
         HStack(alignment: .top, spacing: 12) {
-            Text("3")
+            Text("2")
                 .font(.system(size: 12, weight: .bold, design: .rounded))
                 .foregroundStyle(.black)
                 .frame(width: 20, height: 20)

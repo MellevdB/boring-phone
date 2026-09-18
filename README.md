@@ -1,4 +1,4 @@
-# 📵 Boring Phone
+# 📵 Bored Phone
 
 Tap an NFC tag → your iPhone becomes a boring phone: calls, texts, WhatsApp,
 a browser, and not much else, on a stripped-down home screen. Tap the same

@@ -128,7 +128,7 @@ struct LostTagHelpSheet: View {
                 .foregroundStyle(theme.textPrimary)
 
             walkStep("1", "Open Settings → Screen Time.")
-            walkStep("2", "Tap Boring Phone → Stop Using Screen Time (or delete the app).")
+            walkStep("2", "Tap Bored Phone → Stop Using Screen Time (or delete the app).")
             walkStep("3", "Every shield clears immediately.")
 
             Text("This also means anyone who knows your Screen Time passcode can do this — which is exactly why setting that passcode with someone else is worth doing.")

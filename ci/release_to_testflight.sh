@@ -46,4 +46,4 @@ xcodebuild -exportArchive \
   -authenticationKeyIssuerID "$ASC_ISSUER_ID"
 
 echo "==> Uploaded. Processing on Apple's side takes 5-20 minutes."
-echo "    Check status: App Store Connect > Boring Phone > TestFlight"
+echo "    Check status: App Store Connect > Bored Phone > TestFlight"

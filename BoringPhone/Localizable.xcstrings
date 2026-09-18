@@ -21,12 +21,12 @@
         }
       }
     },
-    "Boring Phone is active": {
+    "Bored Phone is active": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Boring Phone is actief"
+            "value": "Bored Phone is actief"
           }
         }
       }
@@ -141,12 +141,12 @@
         }
       }
     },
-    "Boring Phone and Shortcuts must both be in your allowed apps, or they'll shield themselves too.": {
+    "Bored Phone and Shortcuts must both be in your allowed apps, or they'll shield themselves too.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Boring Phone en Opdrachten moeten beide bij je toegestane apps staan, anders blokkeren ze zichzelf ook."
+            "value": "Bored Phone en Opdrachten moeten beide bij je toegestane apps staan, anders blokkeren ze zichzelf ook."
           }
         }
       }
@@ -171,22 +171,22 @@
         }
       }
     },
-    "Choose your allowed apps above, and include Boring Phone + Shortcuts so they don't lock themselves out.": {
+    "Choose your allowed apps above, and include Bored Phone + Shortcuts so they don't lock themselves out.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kies hierboven je toegestane apps, en voeg Boring Phone + Opdrachten toe zodat ze zichzelf niet buitensluiten."
+            "value": "Kies hierboven je toegestane apps, en voeg Bored Phone + Opdrachten toe zodat ze zichzelf niet buitensluiten."
           }
         }
       }
     },
-    "In Shortcuts → Automation → NFC, scan your tag, set “Run Immediately”, and add the action “Toggle Boring Phone”. Opened Boring Phone at least once already? It should show up when you search “Boring”.": {
+    "In Shortcuts → Automation → NFC, scan your tag, set “Run Immediately”, and add two actions: “Toggle Bored Phone”, then “Set Focus” → toggle the Focus you just made. Opened Bored Phone at least once already? “Toggle Bored Phone” should show up when you search “Bored”.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ga in Opdrachten → Automatisering → NFC, scan je tag, kies “Direct uitvoeren” en voeg de actie “Boring Phone aan/uit” toe. Heb je Boring Phone al minstens één keer geopend? Dan zou hij verschijnen als je zoekt op “Boring”."
+            "value": "Ga in Opdrachten → Automatisering → NFC, scan je tag, kies “Direct uitvoeren” en voeg twee acties toe: “Bored Phone aan/uit”, en daarna “Stel Focus in” → schakel de Focus die je net maakte. Heb je Bored Phone al minstens één keer geopend? Dan zou “Bored Phone aan/uit” verschijnen als je zoekt op “Bored”."
           }
         }
       }
@@ -431,12 +431,12 @@
         }
       }
     },
-    "Tap Boring Phone → Stop Using Screen Time (or delete the app).": {
+    "Tap Bored Phone → Stop Using Screen Time (or delete the app).": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tik op Boring Phone → Schermtijd niet meer gebruiken (of verwijder de app)."
+            "value": "Tik op Bored Phone → Schermtijd niet meer gebruiken (of verwijder de app)."
           }
         }
       }
@@ -451,102 +451,102 @@
         }
       }
     },
-    "Toggle Boring Phone": {
+    "Toggle Bored Phone": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Boring Phone aan/uit"
+            "value": "Bored Phone aan/uit"
           }
         }
       }
     },
-    "Turns Boring Phone on if it is off, and off if it is on. Attach this to an NFC tag automation in Shortcuts.": {
+    "Turns Bored Phone on if it is off, and off if it is on. Attach this to an NFC tag automation in Shortcuts.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zet Boring Phone aan als hij uit staat, en uit als hij aan staat. Koppel dit aan een NFC-tag-automatisering in Opdrachten."
+            "value": "Zet Bored Phone aan als hij uit staat, en uit als hij aan staat. Koppel dit aan een NFC-tag-automatisering in Opdrachten."
           }
         }
       }
     },
-    "Boring Phone on. See you on the other side.": {
+    "Bored Phone on. See you on the other side.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Boring Phone aan. Tot op de andere kant."
+            "value": "Bored Phone aan. Tot op de andere kant."
           }
         }
       }
     },
-    "Boring Phone off. Welcome back.": {
+    "Bored Phone off. Welcome back.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Boring Phone uit. Welkom terug."
+            "value": "Bored Phone uit. Welkom terug."
           }
         }
       }
     },
-    "Lock Boring Phone": {
+    "Lock Bored Phone": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Boring Phone vergrendelen"
+            "value": "Bored Phone vergrendelen"
           }
         }
       }
     },
-    "Turns Boring Phone on.": {
+    "Turns Bored Phone on.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zet Boring Phone aan."
+            "value": "Zet Bored Phone aan."
           }
         }
       }
     },
-    "Boring Phone on.": {
+    "Bored Phone on.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Boring Phone aan."
+            "value": "Bored Phone aan."
           }
         }
       }
     },
-    "Unlock Boring Phone": {
+    "Unlock Bored Phone": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Boring Phone ontgrendelen"
+            "value": "Bored Phone ontgrendelen"
           }
         }
       }
     },
-    "Turns Boring Phone off.": {
+    "Turns Bored Phone off.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zet Boring Phone uit."
+            "value": "Zet Bored Phone uit."
           }
         }
       }
     },
-    "Boring Phone off.": {
+    "Bored Phone off.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Boring Phone uit."
+            "value": "Bored Phone uit."
           }
         }
       }
