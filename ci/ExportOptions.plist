@@ -10,5 +10,7 @@
 	<string>automatic</string>
 	<key>destination</key>
 	<string>upload</string>
+	<key>uploadSymbols</key>
+	<false/>
 </dict>
 </plist>
