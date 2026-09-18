@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boring Phone — Privacy Policy</title>
+<style>
+  :root {
+    --ground: #faf9f5;
+    --panel: #f1efe7;
+    --ink: #18191c;
+    --ink-dim: #57585c;
+    --ink-faint: #8b8c8f;
+    --rule: rgba(24,25,28,0.12);
+    --accent: #b8631a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0c0d10;
+      --panel: #16171b;
+      --ink: #ece9e2;
+      --ink-dim: #a3a29c;
+      --ink-faint: #6b6a66;
+      --rule: rgba(236,233,226,0.12);
+      --accent: #ffb066;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 72px 24px 96px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 18px;
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500; font-size: clamp(32px, 6vw, 44px); line-height: 1.15;
+    margin: 0 0 10px; text-wrap: balance; color: var(--ink);
+  }
+  .meta {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12.5px; color: var(--ink-faint); margin-bottom: 48px;
+  }
+  .lede { font-size: 17px; color: var(--ink-dim); max-width: 60ch; margin-bottom: 56px; }
+  section {
+    display: flex; gap: 20px; padding-bottom: 40px; margin-bottom: 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+  section:last-of-type { border-bottom: none; }
+  .num {
+    flex: 0 0 auto; font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; color: var(--ink-faint); padding-top: 4px; width: 28px;
+  }
+  .body { max-width: 60ch; }
+  h2 {
+    font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 19px;
+    margin: 0 0 12px; color: var(--ink);
+  }
+  p { margin: 0 0 14px; color: var(--ink-dim); }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); font-weight: 600; }
+  code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.9em;
+    background: var(--panel); padding: 0.1em 0.4em; border-radius: 4px; color: var(--ink);
+  }
+  ul { margin: 0 0 14px; padding-left: 20px; color: var(--ink-dim); }
+  li { margin-bottom: 6px; }
+  .callout {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 18px 20px; margin-top: 16px;
+  }
+  .callout p { margin: 0; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  footer {
+    margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--rule);
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px;
+    color: var(--ink-faint); display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px;
+  }
+  footer a { color: var(--ink-dim); }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Boring Phone — Privacy Policy</div>
+  <h1>What Boring Phone does with your data</h1>
+  <div class="meta">Last updated 18 September 2026</div>
+
+  <p class="lede">The short version: Boring Phone doesn't collect, transmit, or share any data at all. Everything below explains exactly why, in the same amount of detail a curious user deserves.</p>
+
+  <section>
+    <div class="num">01</div>
+    <div class="body">
+      <h2>No accounts, no servers</h2>
+      <p>Boring Phone has no sign-in, no user accounts, and no backend server it talks to. The app never makes a network request during normal use. There is nothing to log in to and nothing to leak.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="num">02</div>
+    <div class="body">
+      <h2>What's stored, and where</h2>
+      <p>Two things live on your device only, in standard iOS app storage (<code>UserDefaults</code>), and never leave it:</p>
+      <ul>
+        <li>Whether the app-blocking shield is currently on or off.</li>
+        <li>Which apps you've chosen to stay reachable, stored as opaque tokens issued by Apple's Screen Time API — not as app names, bundle identifiers, or anything Boring Phone itself can read back as plain text.</li>
+      </ul>
+      <p>Deleting the app deletes this data. There is no cloud backup, sync, or copy anywhere else.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="num">03</div>
+    <div class="body">
+      <h2>Screen Time / Family Controls</h2>
+      <p>Boring Phone uses Apple's <code>FamilyControls</code> and <code>ManagedSettings</code> frameworks to shield apps you haven't allow-listed. This permission is requested directly through Apple's own system dialog, is enforced entirely by iOS, and Boring Phone never receives a list of the apps installed on your phone — only the picker's own privacy-preserving selection tokens, which the app itself cannot decode into identities.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="num">04</div>
+    <div class="body">
+      <h2>NFC tags and Shortcuts</h2>
+      <p>The NFC tag that locks and unlocks your phone is registered entirely inside Apple's own Shortcuts app, using Apple's own NFC automation feature. Boring Phone never reads, stores, or has access to your tag's identifier — Shortcuts recognizes the tag and calls one of Boring Phone's on/off actions, that's the entire interaction.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="num">05</div>
+    <div class="body">
+      <h2>No analytics, no third parties</h2>
+      <p>No analytics SDK, no crash reporter, no advertising identifier, no third-party library of any kind is included in this app. Nothing is sold, shared, or monetized — there's nothing to monetize, since nothing is collected.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="num">06</div>
+    <div class="body">
+      <h2>Children's privacy</h2>
+      <p>Boring Phone is not directed at children and collects no personal information from anyone, of any age.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="num">07</div>
+    <div class="body">
+      <h2>Changes to this policy</h2>
+      <p>If this policy ever changes — for instance, if a future version adds a feature that touches data in a new way — the date at the top of this page will change, and the new version will describe exactly what changed and why.</p>
+      <div class="callout">
+        <p>Questions about this policy, or about the app generally? See the <a href="support.html">Support page</a> for how to reach the developer.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Boring Phone</span>
+    <a href="support.html">Support</a>
+  </footer>
+</div>
+</body>
+</html>

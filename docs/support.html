@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boring Phone — Support</title>
+<style>
+  :root {
+    --ground: #faf9f5;
+    --panel: #f1efe7;
+    --ink: #18191c;
+    --ink-dim: #57585c;
+    --ink-faint: #8b8c8f;
+    --rule: rgba(24,25,28,0.12);
+    --accent: #b8631a;
+    --accent-ink: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0c0d10;
+      --panel: #16171b;
+      --ink: #ece9e2;
+      --ink-dim: #a3a29c;
+      --ink-faint: #6b6a66;
+      --rule: rgba(236,233,226,0.12);
+      --accent: #ffb066;
+      --accent-ink: #17140d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 72px 24px 96px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 18px;
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500; font-size: clamp(32px, 6vw, 44px); line-height: 1.15;
+    margin: 0 0 10px; text-wrap: balance; color: var(--ink);
+  }
+  .meta {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12.5px; color: var(--ink-faint); margin-bottom: 48px;
+  }
+  .lede { font-size: 17px; color: var(--ink-dim); max-width: 60ch; margin-bottom: 48px; }
+
+  .contact-card {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 14px;
+    padding: 22px 24px; margin-bottom: 56px; flex-wrap: wrap;
+  }
+  .contact-card .label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11.5px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px;
+  }
+  .contact-card .value { font-size: 17px; font-weight: 500; color: var(--ink); }
+  .contact-card a.button {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px; font-weight: 500;
+    background: var(--accent); color: var(--accent-ink); padding: 10px 18px;
+    border-radius: 8px; text-decoration: none; white-space: nowrap;
+  }
+
+  section {
+    display: flex; gap: 20px; padding-bottom: 40px; margin-bottom: 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+  section:last-of-type { border-bottom: none; }
+  .num {
+    flex: 0 0 auto; font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; color: var(--ink-faint); padding-top: 4px; width: 28px;
+  }
+  .body { max-width: 60ch; }
+  h2 {
+    font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 19px;
+    margin: 0 0 12px; color: var(--ink);
+  }
+  p { margin: 0 0 14px; color: var(--ink-dim); }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); font-weight: 600; }
+  code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.9em;
+    background: var(--panel); padding: 0.1em 0.4em; border-radius: 4px; color: var(--ink);
+  }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  footer {
+    margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--rule);
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px;
+    color: var(--ink-faint); display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px;
+  }
+  footer a { color: var(--ink-dim); }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Boring Phone — Support</div>
+  <h1>Get help with Boring Phone</h1>
+  <div class="meta">Response time: usually within a few days</div>
+
+  <p class="lede">One developer, no support team, no ticketing system — just a direct line. Bugs, setup trouble, and feature ideas are all welcome here.</p>
+
+  <div class="contact-card">
+    <div>
+      <div class="label">Email</div>
+      <div class="value">melle@vanderbrugge.net</div>
+    </div>
+    <a class="button" href="mailto:melle@vanderbrugge.net?subject=Boring%20Phone%20support">Send an email</a>
+  </div>
+
+  <section>
+    <div class="num">01</div>
+    <div class="body">
+      <h2>NFC tag or Shortcuts automation not working</h2>
+      <p>This is almost always one of three things: Boring Phone hasn't been opened once yet on the device (iOS needs that to index its actions for Shortcuts), the <code>Toggle Boring Phone</code> action wasn't added to the NFC automation, or the automation isn't set to <strong>Run Immediately</strong>. Include the exact step you're stuck on in your email and a screenshot if you have one.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="num">02</div>
+    <div class="body">
+      <h2>Locked out and the in-app help didn't work</h2>
+      <p>The locked screen has an <strong>"I lost my NFC tag"</strong> link that walks through recovery. If you've been through that and you're still stuck, email with your device model and iOS version and I'll help directly.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="num">03</div>
+    <div class="body">
+      <h2>Bug reports</h2>
+      <p>Include what you expected to happen, what happened instead, and your iOS version. Screen recordings help more than descriptions when the bug is visual.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="num">04</div>
+    <div class="body">
+      <h2>Feature requests</h2>
+      <p>Boring Phone is intentionally small. Not every idea will fit, but I read every email — send it over.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Boring Phone</span>
+    <a href="privacy.html">Privacy Policy</a>
+  </footer>
+</div>
+</body>
+</html>
