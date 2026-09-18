@@ -3,6 +3,7 @@ import FamilyControls
 
 struct ContentView: View {
     @EnvironmentObject var modeManager: ModeManager
+    @Environment(\.openURL) private var openURL
     @State private var showPicker = false
     @State private var authError: String?
     @State private var pulse = false
@@ -117,36 +118,67 @@ struct ContentView: View {
     }
 
     private var configCard: some View {
-        card {
-            VStack(alignment: .leading, spacing: 16) {
-                HStack {
-                    Text("Allowed apps")
-                        .font(.system(size: 15, weight: .semibold))
-                        .foregroundStyle(.white)
-                    Spacer()
-                    Text("\(modeManager.allowedSelection.applicationTokens.count)")
-                        .font(.system(size: 15, weight: .semibold, design: .rounded))
-                        .foregroundStyle(accent)
-                }
+        VStack(spacing: 14) {
+            requiredAppsCallout
 
-                Text("These stay reachable once you lock with your tag. Phone, Messages and Settings are always reachable — iOS never lets them be blocked.")
-                    .font(.system(size: 13))
-                    .foregroundStyle(.white.opacity(0.5))
+            card {
+                VStack(alignment: .leading, spacing: 16) {
+                    HStack {
+                        Text("Allowed apps")
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundStyle(.white)
+                        Spacer()
+                        Text("\(modeManager.allowedSelection.applicationTokens.count)")
+                            .font(.system(size: 15, weight: .semibold, design: .rounded))
+                            .foregroundStyle(accent)
+                    }
 
-                Button {
-                    showPicker = true
-                } label: {
-                    Text("Choose allowed apps")
-                        .font(.system(size: 15, weight: .semibold))
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 13)
-                        .background(accent)
-                        .foregroundStyle(.black)
-                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                    Text("These stay reachable once you lock with your tag. Phone, Messages and Settings are always reachable — iOS never lets them be blocked.")
+                        .font(.system(size: 13))
+                        .foregroundStyle(.white.opacity(0.5))
+
+                    Button {
+                        showPicker = true
+                    } label: {
+                        Text("Choose allowed apps")
+                            .font(.system(size: 15, weight: .semibold))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 13)
+                            .background(accent)
+                            .foregroundStyle(.black)
+                            .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                    }
+                    .buttonStyle(.plain)
                 }
-                .buttonStyle(.plain)
             }
         }
+    }
+
+    /// Impossible-to-miss reminder, shown only while unlocked — this is the
+    /// one moment it can still be acted on, since the app itself becomes
+    /// unreachable if you forget it and then lock.
+    private var requiredAppsCallout: some View {
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .foregroundStyle(.orange)
+                .font(.system(size: 16))
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Before you lock: include these two")
+                    .font(.system(size: 14, weight: .bold))
+                    .foregroundStyle(.white)
+                Text("Boring Phone and Shortcuts must both be in your allowed apps, or they'll shield themselves too. If you ever forget, Settings → Screen Time always clears the lock — you can't be permanently shut out.")
+                    .font(.system(size: 12.5))
+                    .foregroundStyle(.white.opacity(0.65))
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(14)
+        .background(.orange.opacity(0.12))
+        .overlay(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .strokeBorder(.orange.opacity(0.4), lineWidth: 1)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 
     private var authorizationCard: some View {
@@ -177,8 +209,24 @@ struct ContentView: View {
                     .foregroundStyle(.white)
 
                 setupStep(number: "1", text: "Choose your allowed apps above, and include Boring Phone + Shortcuts so they don't lock themselves out.")
-                setupStep(number: "2", text: "In Shortcuts → Automation → NFC, scan your tag, set “Run Immediately”, and add the action “Toggle Boring Mode”.")
+                setupStep(number: "2", text: "In Shortcuts → Automation → NFC, scan your tag, set “Run Immediately”, and add the action “Toggle Boring Phone”. Opened Boring Phone at least once already? It should show up when you search “Boring”.")
                 setupStep(number: "3", text: "That tag is now the only key. Full walkthrough in SETUP.md.")
+
+                Button {
+                    openURL(URL(string: "shortcuts://")!)
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "arrow.up.forward.app")
+                        Text("Open Shortcuts")
+                    }
+                    .font(.system(size: 14, weight: .semibold))
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                    .background(.white.opacity(0.08))
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                }
+                .buttonStyle(.plain)
             }
         }
     }
