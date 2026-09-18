@@ -25,11 +25,8 @@ EXPORT_PATH="$BUILD_DIR/export"
 rm -rf "$BUILD_DIR"
 mkdir -p "$BUILD_DIR"
 
-echo "==> Bumping build number to keep TestFlight happy"
+echo "==> Archiving (build number stamped via build setting, not a file edit)"
 NEW_BUILD=$(date +%Y%m%d%H%M)
-plutil -replace CFBundleVersion -string "$NEW_BUILD" BoringPhone/Info.plist 2>/dev/null || true
-
-echo "==> Archiving"
 xcodebuild archive \
   -project BoringPhone.xcodeproj \
   -scheme BoringPhone \
