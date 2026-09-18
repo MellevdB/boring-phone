@@ -1,0 +1,506 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "LOCKED": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VERGRENDELD"
+          }
+        }
+      }
+    },
+    "UNLOCKED": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ONTGRENDELD"
+          }
+        }
+      }
+    },
+    "Boring Phone is active": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boring Phone is actief"
+          }
+        }
+      }
+    },
+    "Full access": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volledige toegang"
+          }
+        }
+      }
+    },
+    "Only your allowed apps are reachable.\nTap your NFC tag to unlock.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alleen je toegestane apps zijn bereikbaar.\nTik op je NFC-tag om te ontgrendelen."
+          }
+        }
+      }
+    },
+    "Everything is available.\nTap your NFC tag to lock in.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alles is beschikbaar.\nTik op je NFC-tag om te vergrendelen."
+          }
+        }
+      }
+    },
+    "Locked by NFC": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vergrendeld via NFC"
+          }
+        }
+      }
+    },
+    "There is no button in this app to unlock it. Tap your tag.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Er zit geen knop in deze app om te ontgrendelen. Tik op je tag."
+          }
+        }
+      }
+    },
+    "I lost my NFC tag": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ik ben mijn NFC-tag kwijt"
+          }
+        }
+      }
+    },
+    "Allowed apps": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toegestane apps"
+          }
+        }
+      }
+    },
+    "(entire category)": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "(hele categorie)"
+          }
+        }
+      }
+    },
+    "These stay reachable once you lock with your tag. Phone, Messages and Settings are always reachable — iOS never lets them be blocked.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze blijven bereikbaar zodra je vergrendelt met je tag. Telefoon, Berichten en Instellingen zijn altijd bereikbaar — iOS laat nooit toe dat die geblokkeerd worden."
+          }
+        }
+      }
+    },
+    "Choose allowed apps": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kies toegestane apps"
+          }
+        }
+      }
+    },
+    "Before you lock: include these two": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voordat je vergrendelt: voeg deze twee toe"
+          }
+        }
+      }
+    },
+    "Boring Phone and Shortcuts must both be in your allowed apps, or they'll shield themselves too.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boring Phone en Opdrachten moeten beide bij je toegestane apps staan, anders blokkeren ze zichzelf ook."
+          }
+        }
+      }
+    },
+    "Waiting for Screen Time permission…": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wachten op toestemming voor Schermtijd…"
+          }
+        }
+      }
+    },
+    "How the tag works": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoe de tag werkt"
+          }
+        }
+      }
+    },
+    "Choose your allowed apps above, and include Boring Phone + Shortcuts so they don't lock themselves out.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kies hierboven je toegestane apps, en voeg Boring Phone + Opdrachten toe zodat ze zichzelf niet buitensluiten."
+          }
+        }
+      }
+    },
+    "In Shortcuts → Automation → NFC, scan your tag, set “Run Immediately”, and add the action “Toggle Boring Phone”. Opened Boring Phone at least once already? It should show up when you search “Boring”.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ga in Opdrachten → Automatisering → NFC, scan je tag, kies “Direct uitvoeren” en voeg de actie “Boring Phone aan/uit” toe. Heb je Boring Phone al minstens één keer geopend? Dan zou hij verschijnen als je zoekt op “Boring”."
+          }
+        }
+      }
+    },
+    "Build a minimal home screen page with just your allowed apps, then make a Focus (still labeled “Do Not Disturb” in some places) that shows only that page. Full walkthrough in SETUP.md.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maak een minimale beginschermpagina met alleen je toegestane apps, en maak dan een Focus (op sommige plekken nog “Niet storen” genoemd) die alleen die pagina toont. Volledige uitleg in SETUP.md."
+          }
+        }
+      }
+    },
+    "That tag is now the only key.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die tag is nu de enige sleutel."
+          }
+        }
+      }
+    },
+    "Open Shortcuts": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Opdrachten"
+          }
+        }
+      }
+    },
+    "Open Settings": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Instellingen"
+          }
+        }
+      }
+    },
+    "Close": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sluiten"
+          }
+        }
+      }
+    },
+    "Have you really checked?": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heb je echt gezocht?"
+          }
+        }
+      }
+    },
+    "Pockets. Bag. Desk. The place you usually leave it. Most \"lost\" tags are five meters away.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zakken. Tas. Bureau. De plek waar je hem meestal laat liggen. De meeste \"kwijtgeraakte\" tags liggen vijf meter verderop."
+          }
+        }
+      }
+    },
+    "I checked, still can't find it": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ik heb gezocht, kan hem niet vinden"
+          }
+        }
+      }
+    },
+    "Let me go check again": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ik ga nog even zoeken"
+          }
+        }
+      }
+    },
+    "Be honest with yourself": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wees eerlijk tegen jezelf"
+          }
+        }
+      }
+    },
+    "This exists for real emergencies — not for when five more minutes of scrolling feels urgent. If you continue, you're turning off the exact thing you set up to protect your focus.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dit is bedoeld voor echte noodgevallen — niet voor wanneer nog vijf minuten scrollen dringend voelt. Als je doorgaat, zet je precies datgene uit wat je had ingesteld om je focus te beschermen."
+          }
+        }
+      }
+    },
+    "I understand, continue anyway": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ik begrijp het, toch doorgaan"
+          }
+        }
+      }
+    },
+    "Actually, I'll wait": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ik wacht toch maar even"
+          }
+        }
+      }
+    },
+    "One more moment": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nog héél even"
+          }
+        }
+      }
+    },
+    "If it's genuinely urgent, twenty seconds won't matter.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Als het echt dringend is, maken twintig seconden niets uit."
+          }
+        }
+      }
+    },
+    "Show me the steps": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laat de stappen zien"
+          }
+        }
+      }
+    },
+    "How to unlock without the tag": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoe je ontgrendelt zonder de tag"
+          }
+        }
+      }
+    },
+    "This also means anyone who knows your Screen Time passcode can do this — which is exactly why setting that passcode with someone else is worth doing.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dit betekent ook dat iedereen die je Schermtijd-toegangscode kent dit kan doen — precies waarom het de moeite waard is die code samen met iemand anders in te stellen."
+          }
+        }
+      }
+    },
+    "Open Settings → Screen Time.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Instellingen → Schermtijd."
+          }
+        }
+      }
+    },
+    "Tap Boring Phone → Stop Using Screen Time (or delete the app).": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tik op Boring Phone → Schermtijd niet meer gebruiken (of verwijder de app)."
+          }
+        }
+      }
+    },
+    "Every shield clears immediately.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elke blokkade wordt direct opgeheven."
+          }
+        }
+      }
+    },
+    "Toggle Boring Phone": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boring Phone aan/uit"
+          }
+        }
+      }
+    },
+    "Turns Boring Phone on if it is off, and off if it is on. Attach this to an NFC tag automation in Shortcuts.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zet Boring Phone aan als hij uit staat, en uit als hij aan staat. Koppel dit aan een NFC-tag-automatisering in Opdrachten."
+          }
+        }
+      }
+    },
+    "Boring Phone on. See you on the other side.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boring Phone aan. Tot op de andere kant."
+          }
+        }
+      }
+    },
+    "Boring Phone off. Welcome back.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boring Phone uit. Welkom terug."
+          }
+        }
+      }
+    },
+    "Lock Boring Phone": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boring Phone vergrendelen"
+          }
+        }
+      }
+    },
+    "Turns Boring Phone on.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zet Boring Phone aan."
+          }
+        }
+      }
+    },
+    "Boring Phone on.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boring Phone aan."
+          }
+        }
+      }
+    },
+    "Unlock Boring Phone": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boring Phone ontgrendelen"
+          }
+        }
+      }
+    },
+    "Turns Boring Phone off.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zet Boring Phone uit."
+          }
+        }
+      }
+    },
+    "Boring Phone off.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boring Phone uit."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

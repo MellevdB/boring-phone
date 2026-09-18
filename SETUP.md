@@ -15,12 +15,9 @@ Do these once, in order, after installing the app from Xcode. ~15 minutes.
    restriction, not something we chose — so this has to be a manual, careful
    step each time you re-pick your apps.
 
-   **If you forget anyway, you're not stuck.** Settings can never be
-   shielded by iOS — no exceptions. `Settings → Screen Time → Boring Phone →
-   Stop Using Screen Time` (or delete the app) instantly clears every
-   shield, tag or no tag. Keep this in your back pocket; you won't need it
-   if you do step 2 correctly, but it means a mistake here is never
-   permanent.
+   **If you forget anyway, you're not stuck** — see §6 for how to recover.
+   It's deliberately not a one-liner here: easy-to-find unlock instructions
+   would defeat the entire point of this app.
 
 There is deliberately no on/off switch in the app itself — locking and
 unlocking only ever happens through the NFC automation in the next section.
@@ -102,16 +99,29 @@ mode. Careful: then *only* the tag can save you — don't lose the tag.
 - Stick the tag somewhere meaningful: front door, desk, kitchen drawer.
 - Tap when you want your life back from the phone. Tap again when you need
   a real phone.
-## 6. Lost the tag? Escape routes, easiest first
+## 6. Lost the tag? Recovery, by design, is not easy
 
-1. **Shortcuts app** (you kept it allowed, right?) → open the "boring tag"
-   automation → run its **Toggle Boring Phone** action manually. The app has
-   no off switch of its own on purpose — this is the sanctioned back door.
-2. **Any new NFC tag**: Shortcuts → Automation → + → NFC → scan the new tag
-   → add the Toggle Boring Phone action. Tags are ~€1; better yet, register
-   a **backup tag now** and keep it in a drawer.
-3. **Settings → Screen Time** (Settings is never blockable): revoke Boring
-   Phone's Screen Time access, or delete the app — either clears the shield.
-   Blocked by the hardening passcode? That's it doing its job: whoever holds
-   the passcode can undo it.
-4. Nuclear: reinstall from Xcode — a fresh install starts with the shield off.
+If you're locked out (tag at home, you're at work) there is a real way
+back — but it's deliberately gated, not a quick tip in this file. On the
+locked screen, under the status card, there's a small, low-key **"I lost my
+NFC tag"** link. Tapping it walks you through:
+
+1. A prompt to actually go check your pockets/bag/desk again.
+2. An honesty check: is this a real emergency, or is scrolling just feeling
+   urgent right now?
+3. A short forced wait.
+4. Only then: the actual Settings → Screen Time steps.
+
+That's on purpose. If the instructions were easy to find, "I locked myself
+out and I'm at work" would become the standard excuse to undo the entire
+point of this app. Use it when you mean it.
+
+Other recovery routes, for completeness:
+
+- **Any new NFC tag**: Shortcuts → Automation → + → NFC → scan the new tag
+  → add the Toggle Boring Phone action. Tags are ~€1; register a **backup
+  tag now** and keep it somewhere you won't carry both at once (a drawer at
+  home, not your other pocket).
+- Blocked by the hardening passcode from §4? That's it doing its job —
+  whoever holds the passcode can undo it; that's the whole design.
+- Nuclear: reinstall from Xcode — a fresh install starts with the shield off.
