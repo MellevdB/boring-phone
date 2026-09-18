@@ -191,12 +191,62 @@
         }
       }
     },
-    "Build a minimal home screen page with just your allowed apps, then make a Focus (still labeled “Do Not Disturb” in some places) that shows only that page. Full walkthrough in SETUP.md.": {
+    "Build a minimal home screen page with just your allowed apps, then make a matching Focus.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Maak een minimale beginschermpagina met alleen je toegestane apps, en maak dan een Focus (op sommige plekken nog “Niet storen” genoemd) die alleen die pagina toont. Volledige uitleg in SETUP.md."
+            "value": "Maak een minimale beginschermpagina met alleen je toegestane apps, en maak dan een bijpassende Focus."
+          }
+        }
+      }
+    },
+    "How to set this up": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoe je dit instelt"
+          }
+        }
+      }
+    },
+    "Long-press your home screen → swipe to a new empty page → add only your allowed apps.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Houd je beginscherm ingedrukt → swipe naar een nieuwe lege pagina → voeg alleen je toegestane apps toe."
+          }
+        }
+      }
+    },
+    "Settings → Focus → + → Custom → name it “Boring”.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instellingen → Focus → + → Aangepast → noem hem “Boring”."
+          }
+        }
+      }
+    },
+    "Under People and Apps, allow the contacts and notifications you actually need.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sta bij Personen en Apps de contacten en meldingen toe die je echt nodig hebt."
+          }
+        }
+      }
+    },
+    "Under Customize Screens → Home Screen, enable page filtering and tick only your new page.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zet bij Schermen aanpassen → Beginscherm het filteren van pagina's aan en vink alleen je nieuwe pagina aan."
           }
         }
       }

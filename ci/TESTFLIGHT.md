@@ -45,6 +45,23 @@ TestFlight has two tiers:
 Once the app record exists, I can add tester emails and create the testing
 group via the API — just give me the list of emails.
 
+## Privacy Policy & Support links
+
+Required by App Store Connect's beta app info (and later, full App Store
+submission). Hosted as static pages at `docs/privacy.html` and
+`docs/support.html` in this repo, served via **GitHub Pages** (enabled on
+this repo, source: `main` branch, `/docs`):
+
+- Privacy: https://mellevdb.github.io/boring-phone/privacy.html
+- Support: https://mellevdb.github.io/boring-phone/support.html
+
+Both URLs are already set on the app's `betaAppLocalizations` record via the
+API (feedback email, marketing URL, privacy policy URL, and a beta
+description). Beta review contact info (name, email, phone) and reviewer
+notes are set on `betaAppReviewDetails`. Editing either page: edit the file
+in `docs/`, commit, push — GitHub Pages rebuilds automatically within a
+minute or two.
+
 ## Renewing
 
 Distribution builds signed with a paid account are valid for a full year

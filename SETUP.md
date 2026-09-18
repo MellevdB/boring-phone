@@ -64,6 +64,14 @@ Apple's block screen regardless. You can *see* the app exists; you can't
      indexes an app's actions after its first launch — open it once, then
      come back), or, rarely, the phone needs a restart for a freshly
      installed app's actions to register.
+
+     If instead you get **"Something went wrong, try again"** while adding
+     it: this is a known iOS bug with stale App Intents metadata, most
+     common right after an app's actions were renamed across a few
+     incremental reinstalls. Fix: fully **delete** the app (not just
+     reinstall over it) → **restart the phone** → reinstall fresh from
+     Xcode → open it once → try adding the action again. A plain overwrite
+     install usually isn't enough to clear this.
    - **Set Focus**: Toggle **Boring** Focus
 5. Save. Done.
 

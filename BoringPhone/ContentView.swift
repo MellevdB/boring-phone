@@ -10,6 +10,7 @@ struct ContentView: View {
 
     @State private var showPicker = false
     @State private var showLostTagHelp = false
+    @State private var showHomeScreenDetails = false
     @State private var authError: String?
     @State private var pulse = false
 
@@ -286,7 +287,7 @@ struct ContentView: View {
 
                 setupStep(number: "1", text: "Choose your allowed apps above, and include Boring Phone + Shortcuts so they don't lock themselves out.")
                 setupStep(number: "2", text: "In Shortcuts → Automation → NFC, scan your tag, set “Run Immediately”, and add the action “Toggle Boring Phone”. Opened Boring Phone at least once already? It should show up when you search “Boring”.")
-                setupStep(number: "3", text: "Build a minimal home screen page with just your allowed apps, then make a Focus (still labeled “Do Not Disturb” in some places) that shows only that page. Full walkthrough in SETUP.md.")
+                homeScreenStep
                 setupStep(number: "4", text: "That tag is now the only key.")
 
                 HStack(spacing: 10) {
@@ -294,6 +295,61 @@ struct ContentView: View {
                     linkButton("Open Settings", systemImage: "gearshape", url: UIApplication.openSettingsURLString)
                 }
             }
+        }
+    }
+
+    private var homeScreenStep: some View {
+        HStack(alignment: .top, spacing: 12) {
+            Text("3")
+                .font(.system(size: 12, weight: .bold, design: .rounded))
+                .foregroundStyle(.black)
+                .frame(width: 20, height: 20)
+                .background(Circle().fill(theme.accent.opacity(0.9)))
+
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Build a minimal home screen page with just your allowed apps, then make a matching Focus.")
+                    .font(.system(size: 13))
+                    .foregroundStyle(theme.textTertiary)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Button {
+                    withAnimation(.easeInOut(duration: 0.2)) { showHomeScreenDetails.toggle() }
+                } label: {
+                    HStack(spacing: 6) {
+                        Image(systemName: "triangle.fill")
+                            .font(.system(size: 6))
+                            .rotationEffect(.degrees(showHomeScreenDetails ? 180 : 90))
+                        Text("How to set this up")
+                    }
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundStyle(theme.accent)
+                }
+                .buttonStyle(.plain)
+
+                if showHomeScreenDetails {
+                    VStack(alignment: .leading, spacing: 8) {
+                        homeScreenDetailLine("Long-press your home screen → swipe to a new empty page → add only your allowed apps.")
+                        homeScreenDetailLine("Settings → Focus → + → Custom → name it “Boring”.")
+                        homeScreenDetailLine("Under People and Apps, allow the contacts and notifications you actually need.")
+                        homeScreenDetailLine("Under Customize Screens → Home Screen, enable page filtering and tick only your new page.")
+                    }
+                    .padding(.top, 2)
+                    .transition(.opacity.combined(with: .move(edge: .top)))
+                }
+            }
+        }
+    }
+
+    private func homeScreenDetailLine(_ text: LocalizedStringKey) -> some View {
+        HStack(alignment: .top, spacing: 8) {
+            Circle()
+                .fill(theme.textTertiary.opacity(0.5))
+                .frame(width: 4, height: 4)
+                .padding(.top, 6)
+            Text(text)
+                .font(.system(size: 12.5))
+                .foregroundStyle(theme.textTertiary)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 
