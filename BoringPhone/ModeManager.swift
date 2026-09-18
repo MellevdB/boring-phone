@@ -53,6 +53,27 @@ final class ModeManager: ObservableObject {
         AuthorizationCenter.shared.authorizationStatus == .approved
     }
 
+    private static let shortcutsBundleID = "com.apple.shortcuts"
+
+    /// Best-effort check for whether both this app and Shortcuts are already
+    /// in the allow-list — used only to hide/show a UI reminder, never for
+    /// any security decision (the shield itself doesn't care about this).
+    /// `Application(token:).bundleIdentifier` isn't guaranteed to resolve in
+    /// every context, so this fails closed: if it can't positively confirm
+    /// both are present, it returns false and the reminder stays visible
+    /// rather than risk a false "you're safe".
+    var includesSelfAndShortcuts: Bool {
+        guard let ownBundleID = Bundle.main.bundleIdentifier else { return false }
+        var hasSelf = false
+        var hasShortcuts = false
+        for token in allowedSelection.applicationTokens {
+            guard let bundleID = Application(token: token).bundleIdentifier else { continue }
+            if bundleID == ownBundleID { hasSelf = true }
+            if bundleID == Self.shortcutsBundleID { hasShortcuts = true }
+        }
+        return hasSelf && hasShortcuts
+    }
+
     @MainActor
     func requestAuthorization() async throws {
         try await AuthorizationCenter.shared.requestAuthorization(for: .individual)

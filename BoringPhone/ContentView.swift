@@ -162,7 +162,10 @@ struct ContentView: View {
 
     private var configCard: some View {
         VStack(spacing: 14) {
-            requiredAppsCallout
+            if !modeManager.includesSelfAndShortcuts {
+                requiredAppsCallout
+                    .transition(.opacity.combined(with: .move(edge: .top)))
+            }
 
             card {
                 VStack(alignment: .leading, spacing: 16) {
@@ -200,6 +203,7 @@ struct ContentView: View {
                 }
             }
         }
+        .animation(.easeInOut(duration: 0.25), value: modeManager.includesSelfAndShortcuts)
     }
 
     /// Shows exactly what's selected as a plain list — the system picker's
