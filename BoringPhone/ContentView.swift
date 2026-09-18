@@ -291,7 +291,7 @@ struct ContentView: View {
 
                 setupStep(number: "1", text: "Choose your allowed apps above, and include Bored Phone + Shortcuts so they don't lock themselves out.")
                 homeScreenStep
-                setupStep(number: "3", text: "In Shortcuts → Automation → NFC, scan your tag, set “Run Immediately”, and add two actions: “Toggle Bored Phone”, then “Set Focus” → toggle the Focus you just made. Opened Bored Phone at least once already? “Toggle Bored Phone” should show up when you search “Bored”.")
+                setupStep(number: "3", text: "In Shortcuts → Automation → NFC, scan your tag, then tap “Create New Shortcut” — not an app suggestion, or you won't be able to add a second action. Set “Run Immediately”, and add two actions: “Toggle Bored Phone”, then “Set Focus” → pick the Focus you just made and set it to “Toggle”, not “Turn On”, so the same tap works both ways. Opened Bored Phone at least once already? “Toggle Bored Phone” should show up when you search “Bored”.")
                 setupStep(number: "4", text: "That tag is now the only key.")
 
                 HStack(spacing: 10) {

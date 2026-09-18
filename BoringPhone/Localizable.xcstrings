@@ -181,12 +181,12 @@
         }
       }
     },
-    "In Shortcuts → Automation → NFC, scan your tag, set “Run Immediately”, and add two actions: “Toggle Bored Phone”, then “Set Focus” → toggle the Focus you just made. Opened Bored Phone at least once already? “Toggle Bored Phone” should show up when you search “Bored”.": {
+    "In Shortcuts → Automation → NFC, scan your tag, then tap “Create New Shortcut” — not an app suggestion, or you won't be able to add a second action. Set “Run Immediately”, and add two actions: “Toggle Bored Phone”, then “Set Focus” → pick the Focus you just made and set it to “Toggle”, not “Turn On”, so the same tap works both ways. Opened Bored Phone at least once already? “Toggle Bored Phone” should show up when you search “Bored”.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ga in Opdrachten → Automatisering → NFC, scan je tag, kies “Direct uitvoeren” en voeg twee acties toe: “Bored Phone aan/uit”, en daarna “Stel Focus in” → schakel de Focus die je net maakte. Heb je Bored Phone al minstens één keer geopend? Dan zou “Bored Phone aan/uit” verschijnen als je zoekt op “Bored”."
+            "value": "Ga in Opdrachten → Automatisering → NFC, scan je tag, en tik dan op “Maak nieuwe opdracht aan” — niet op een appsuggestie, anders kun je geen tweede actie meer toevoegen. Kies “Direct uitvoeren” en voeg twee acties toe: “Bored Phone aan/uit”, en daarna “Stel Focus in” → kies de Focus die je net hebt gemaakt en zet die op “Wissel”, niet op “Zet aan”, zodat dezelfde tik beide kanten op werkt. Heb je Bored Phone al minstens één keer geopend? Dan zou “Bored Phone aan/uit” verschijnen als je zoekt op “Bored”."
           }
         }
       }

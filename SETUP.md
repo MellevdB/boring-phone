@@ -56,8 +56,13 @@ Apple's block screen regardless. You can *see* the app exists; you can't
    *iOS ties this automation to this exact physical tag — someone else's tag
    won't trigger it. That's your "specific tag only" requirement, handled by
    the OS.*
-3. Choose **Run Immediately** (not "Run After Confirmation"), notify off.
-4. Add actions, in this order:
+3. **Important:** after the tag is scanned, tap **"Create New Shortcut"** —
+   do **not** tap an app suggestion (like a Bored Phone icon) that iOS
+   offers here. Tapping an app suggestion skips straight to a single
+   one-action shortcut, and you won't be able to add the second action
+   below. "Create New Shortcut" opens the full editor.
+4. Choose **Run Immediately** (not "Run After Confirmation"), notify off.
+5. Add actions, in this order:
    - **Toggle Bored Phone** (from the Bored Phone app) — search "Bored"
      if it doesn't show up immediately. Two things cause it to be missing:
      you haven't opened the Bored Phone app on this device yet (iOS only
@@ -72,8 +77,12 @@ Apple's block screen regardless. You can *see* the app exists; you can't
      reinstall over it) → **restart the phone** → reinstall fresh from
      Xcode → open it once → try adding the action again. A plain overwrite
      install usually isn't enough to clear this.
-   - **Set Focus**: Toggle **Boring** Focus
-5. Save. Done.
+   - **Set Focus** → pick the **Boring** Focus you made in §2, and set the
+     action's own mode to **Toggle** — not "Turn On". Leaving it on "Turn
+     On" means tapping the tag a second time won't switch your layout back,
+     even though the app's shield does — the same physical tap needs to
+     flip both.
+6. Save. Done.
 
 **Test:** tap the phone on the tag → shield goes up, home screen collapses to
 the minimal page, and the app's status screen shows **LOCKED**. Tap again →
