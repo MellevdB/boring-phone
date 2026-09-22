@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var showLostTagHelp = false
     @State private var showHomeScreenDetails = false
     @State private var authError: String?
+    @State private var isRequestingAuthorization = false
     @State private var pulse = false
 
     var body: some View {
@@ -43,13 +44,6 @@ struct ContentView: View {
             LostTagHelpSheet()
         }
         .task {
-            if !modeManager.isAuthorized {
-                do {
-                    try await modeManager.requestAuthorization()
-                } catch {
-                    authError = error.localizedDescription
-                }
-            }
             withAnimation(.easeInOut(duration: 2.2).repeatForever(autoreverses: true)) {
                 pulse = true
             }
@@ -125,6 +119,13 @@ struct ContentView: View {
                 .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)
         }
+        // Locking/unlocking can happen while a sheet is mid-dismiss (the
+        // 24-hour emergency unlock button in LostTagHelp does exactly
+        // that), which can otherwise share an animation transaction with
+        // this status text and leave it stuck cross-fading between the two
+        // strings. The status is a plain fact, not something that benefits
+        // from animating anyway — always snap it instantly.
+        .animation(nil, value: modeManager.isBoringModeOn)
     }
 
     // MARK: - Cards
@@ -200,6 +201,10 @@ struct ContentView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                     }
                     .buttonStyle(.plain)
+
+                    Text("Tip: tap individual apps rather than \"Select All\" then deselecting — that keeps the list small on purpose. The picker also shows apps and sites Apple knows about generally, not just ones installed on this phone; ones you don't recognize are harmless to ignore.")
+                        .font(.system(size: 11.5))
+                        .foregroundStyle(theme.textSecondary.opacity(0.8))
                 }
             }
         }
@@ -262,23 +267,69 @@ struct ContentView: View {
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 
+    /// Shown before we ever trigger Apple's own Screen Time permission
+    /// dialog. We have no control over that system dialog's button layout
+    /// or color — this screen exists so people know what to expect and
+    /// which option to pick before it appears, rather than guessing at an
+    /// unfamiliar system prompt in the moment.
     private var authorizationCard: some View {
         card {
-            HStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 14) {
                 if let authError {
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundStyle(.red)
-                    Text(authError)
-                        .font(.system(size: 13))
-                        .foregroundStyle(theme.textTertiary)
+                    HStack(spacing: 12) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .foregroundStyle(.red)
+                        Text(authError)
+                            .font(.system(size: 13))
+                            .foregroundStyle(theme.textTertiary)
+                    }
+                    retryButton
+                } else if isRequestingAuthorization {
+                    HStack(spacing: 12) {
+                        ProgressView()
+                            .tint(theme.accent)
+                        Text("Waiting for your response…")
+                            .font(.system(size: 14))
+                            .foregroundStyle(theme.textSecondary)
+                    }
                 } else {
-                    ProgressView()
-                        .tint(theme.accent)
-                    Text("Waiting for Screen Time permission…")
-                        .font(.system(size: 14))
+                    Text("One permission needed")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(theme.textPrimary)
+                    Text("iOS will now ask to let Bored Phone use Screen Time. Choose the option that says Continue or Allow — that's what lets the app shield anything at all. Don't worry if you tap the wrong one by mistake, you can try again below.")
+                        .font(.system(size: 13))
                         .foregroundStyle(theme.textSecondary)
+                    retryButton
                 }
             }
+        }
+    }
+
+    private var retryButton: some View {
+        Button {
+            requestAuthorization()
+        } label: {
+            Text(authError == nil ? "Continue" : "Try again")
+                .font(.system(size: 15, weight: .semibold))
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 13)
+                .background(theme.accent)
+                .foregroundStyle(.black)
+                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func requestAuthorization() {
+        authError = nil
+        isRequestingAuthorization = true
+        Task {
+            do {
+                try await modeManager.requestAuthorization()
+            } catch {
+                authError = error.localizedDescription
+            }
+            isRequestingAuthorization = false
         }
     }
 

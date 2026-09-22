@@ -151,12 +151,62 @@
         }
       }
     },
-    "Waiting for Screen Time permission…": {
+    "One permission needed": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Wachten op toestemming voor Schermtijd…"
+            "value": "Eén toestemming nodig"
+          }
+        }
+      }
+    },
+    "iOS will now ask to let Bored Phone use Screen Time. Choose the option that says Continue or Allow — that's what lets the app shield anything at all. Don't worry if you tap the wrong one by mistake, you can try again below.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS vraagt zo of Bored Phone Schermtijd mag gebruiken. Kies de optie met Doorgaan of Toestaan — dat is wat de app in staat stelt om iets te blokkeren. Per ongeluk de verkeerde getikt? Geen probleem, probeer het hieronder gewoon opnieuw."
+          }
+        }
+      }
+    },
+    "Continue": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Doorgaan"
+          }
+        }
+      }
+    },
+    "Try again": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opnieuw proberen"
+          }
+        }
+      }
+    },
+    "Waiting for your response…": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wachten op je reactie…"
+          }
+        }
+      }
+    },
+    "Tip: tap individual apps rather than \"Select All\" then deselecting — that keeps the list small on purpose. The picker also shows apps and sites Apple knows about generally, not just ones installed on this phone; ones you don't recognize are harmless to ignore.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tip: tik losse apps aan in plaats van \"Selecteer alles\" en dan weer uitvinken — zo blijft de lijst expres klein. De kiezer toont ook apps en sites die Apple kent in het algemeen, niet alleen wat op deze telefoon staat; onbekende items kun je gewoon negeren."
           }
         }
       }
@@ -341,112 +391,92 @@
         }
       }
     },
-    "This exists for real emergencies — not for when five more minutes of scrolling feels urgent. If you continue, you're turning off the exact thing you set up to protect your focus.": {
+    "This exists for real emergencies — not for when five more minutes of scrolling feels urgent. Continuing starts a 24-hour wait before you can unlock this way.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dit is bedoeld voor echte noodgevallen — niet voor wanneer nog vijf minuten scrollen dringend voelt. Als je doorgaat, zet je precies datgene uit wat je had ingesteld om je focus te beschermen."
+            "value": "Dit is bedoeld voor echte noodgevallen — niet voor wanneer nog vijf minuten scrollen dringend voelt. Doorgaan start een wachttijd van 24 uur voordat je op deze manier kunt ontgrendelen."
           }
         }
       }
     },
-    "I understand, continue anyway": {
+    "Start the 24-hour wait": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ik begrijp het, toch doorgaan"
+            "value": "Start de wachttijd van 24 uur"
           }
         }
       }
     },
-    "Actually, I'll wait": {
+    "Actually, I'll wait for the tag": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ik wacht toch maar even"
+            "value": "Ik wacht toch liever op de tag"
           }
         }
       }
     },
-    "One more moment": {
+    "Waiting it out": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nog héél even"
+            "value": "Uitzitten"
           }
         }
       }
     },
-    "If it's genuinely urgent, twenty seconds won't matter.": {
+    "If it's genuinely urgent, this is the price — a real 24 hours, not app-open time. It keeps counting even if you close Bored Phone.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Als het echt dringend is, maken twintig seconden niets uit."
+            "value": "Als het echt dringend is, is dit de prijs — een echte 24 uur, geen tijd dat de app open moet staan. De klok blijft lopen ook als je Bored Phone sluit."
           }
         }
       }
     },
-    "Show me the steps": {
+    "Cancel this request": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laat de stappen zien"
+            "value": "Annuleer dit verzoek"
           }
         }
       }
     },
-    "How to unlock without the tag": {
+    "The wait is over": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hoe je ontgrendelt zonder de tag"
+            "value": "De wachttijd is voorbij"
           }
         }
       }
     },
-    "This also means anyone who knows your Screen Time passcode can do this — which is exactly why setting that passcode with someone else is worth doing.": {
+    "Unlock Bored Phone now": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dit betekent ook dat iedereen die je Schermtijd-toegangscode kent dit kan doen — precies waarom het de moeite waard is die code samen met iemand anders in te stellen."
+            "value": "Ontgrendel Bored Phone nu"
           }
         }
       }
     },
-    "Open Settings → Screen Time.": {
+    "Prefer to do it manually, or want to remove Bored Phone entirely? Settings → Screen Time → Bored Phone → Stop Using Screen Time works too, and always has — Apple guarantees that path stays open for an app you install yourself.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Open Instellingen → Schermtijd."
-          }
-        }
-      }
-    },
-    "Tap Bored Phone → Stop Using Screen Time (or delete the app).": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tik op Bored Phone → Schermtijd niet meer gebruiken (of verwijder de app)."
-          }
-        }
-      }
-    },
-    "Every shield clears immediately.": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Elke blokkade wordt direct opgeheven."
+            "value": "Liever handmatig, of wil je Bored Phone helemaal verwijderen? Instellingen → Schermtijd → Bored Phone → Schermtijd niet meer gebruiken werkt ook, en werkte altijd al — Apple garandeert dat dit pad open blijft voor een app die je zelf installeert."
           }
         }
       }

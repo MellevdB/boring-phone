@@ -66,10 +66,13 @@ entitlement approval, on top of the paid membership — that doc explains it.
 
 - **Phone, Messages, Settings can't be blocked** by iOS at all — which is
   fine, they're on your allow-list anyway.
-- This is a **commitment device, not a prison.** Determined-you can delete
-  the app or edit the automation. SETUP.md has a hardening section
-  (Screen Time passcode + blocking app deletion) that makes cheating
-  genuinely annoying.
+- This is a **commitment device, not a prison.** While locked, Strict Mode
+  automatically blocks deleting the app, changing accounts, and manually
+  changing the date/time (see SETUP.md §4) — but Apple guarantees
+  `Settings → Screen Time → Stop Using Screen Time` always stays available
+  for any self-installed app, on any iOS app, no exceptions. Determined-you
+  can still use that route; the app's emergency unlock (§6) gates its own
+  path behind a real 24-hour wait, but can't gate Apple's.
 - Development installs expire after a year; plug in and Run again to renew.
 
 ## Repo layout

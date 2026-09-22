@@ -4,16 +4,30 @@ Do these once, in order, after installing the app from Xcode. ~15 minutes.
 
 ## 1. Configure the app
 
-1. Open **Bored Phone**, grant the Screen Time permission.
+1. Open **Bored Phone**. It shows a short explainer before asking for
+   Screen Time permission — tap **Continue** there, then on Apple's own
+   system dialog choose **Continue**/**Allow**. We can't change that
+   system dialog's layout or colors (it's entirely Apple's), which is
+   exactly why the app explains it first.
 2. Tap **Choose allowed apps** and select what stays usable in boring mode:
    WhatsApp, Safari, Camera, Maps — whatever you decided. (Phone, Messages
    and Settings are system apps iOS never blocks, so don't worry about them.)
+   Two things about this picker that are just how it is, not bugs:
+   - It lists apps and websites generally known to Apple, not only ones
+     installed on this phone — that's inherent to the same privacy design
+     that keeps the picker from leaking your installed-apps list to any
+     app, ours included. Anything you don't recognize is harmless to skip.
+   - You *can* tap "Select All" and then deselect the ones you want kept —
+     but tapping each app you actually want individually keeps the allow
+     list small on purpose, which is the whole point.
+
    **Important: also select Bored Phone itself and the Shortcuts app** —
    otherwise the app shields itself and your escape hatches along with
    everything else. iOS's app picker doesn't let anyone (including us)
    pre-select or lock in specific apps here — it's a genuine platform
    restriction, not something we chose — so this has to be a manual, careful
-   step each time you re-pick your apps.
+   step each time you re-pick your apps. (The app hides its own reminder
+   about this automatically once it can confirm both are selected.)
 
    **If you forget anyway, you're not stuck** — see §6 for how to recover.
    It's deliberately not a one-liner here: easy-to-find unlock instructions
@@ -94,22 +108,39 @@ Phone** action's play button, or run it from My Shortcuts if you saved a
 duplicate there. It flips the same intent the tag does — useful for
 verifying the app picker worked before you trust it to a tap.
 
-## 4. Hardening (optional, recommended)
+## 4. Strict Mode (built in, automatic)
 
-Make cheating annoying enough that you won't bother:
+While the phone is locked, the app automatically turns on three extra
+restrictions — no toggle needed, no separate hardening step:
 
-1. **Settings → Screen Time → Lock Screen Time Settings** — set a Screen Time
-   passcode. Best: have a partner/friend set it so you don't know it, or use
-   a random code stored somewhere inconvenient (paper in a drawer at home).
-2. **Settings → Screen Time → Content & Privacy Restrictions → iTunes & App
-   Store Purchases → Deleting Apps → Don't Allow** — now you can't delete
-   the Bored Phone app to escape the shield.
+- **Can't delete the app** — the long-press "Remove App" option disappears
+  for Bored Phone (and everything else) while locked.
+- **Can't change accounts** — adding/removing Mail, Contacts, or iCloud
+  accounts is blocked, closing one common workaround.
+- **Can't manually change the date/time** — this specifically protects the
+  24-hour emergency wait in §6 from the classic "just set the clock forward"
+  trick.
 
-Remaining escape hatches (deliberately not closed — this is a commitment
-device, not a prison): you could still open Shortcuts and run the toggle
-manually, or delete the automation. If even that tempts you, put the
-Shortcuts app itself outside your allowed list so it's shielded in boring
-mode. Careful: then *only* the tag can save you — don't lose the tag.
+**The honest limit, straight from Apple's own developer forum:** none of
+this is an absolute guarantee. `denyAppRemoval` "isn't guaranteed to
+prevent app deletion with `.individual` authorization, since `.individual`
+authorizations can be revoked at any time via Settings" — Apple deliberately
+keeps `Settings → Screen Time → Bored Phone → Stop Using Screen Time`
+open for *any* self-installed app, specifically so an app you installed
+yourself can never permanently imprison your device (imagine the opposite:
+a piece of malware that could lock itself in place forever). True
+tamper-proof enforcement only exists for supervised/child devices under
+Family Sharing, which isn't what a personal focus app should require.
+
+So: Strict Mode stops the *casual* "long-press and delete" impulse and the
+naive clock trick, but the Settings route always remains — same as it
+always has. Optional extra step if you want more friction on top:
+
+- **Settings → Screen Time → Lock Screen Time Settings** — set a Screen
+  Time passcode. Best: have a partner/friend set it so you don't know it,
+  or use a random code stored somewhere inconvenient (paper in a drawer at
+  home). This doesn't close the Settings route either — it just means
+  whoever holds the passcode has to be involved.
 
 ## 5. Daily use
 
@@ -126,12 +157,29 @@ NFC tag"** link. Tapping it walks you through:
 1. A prompt to actually go check your pockets/bag/desk again.
 2. An honesty check: is this a real emergency, or is scrolling just feeling
    urgent right now?
-3. A short forced wait.
-4. Only then: the actual Settings → Screen Time steps.
+3. **A genuine 24-hour wait** — not app-open time. It's timestamped and
+   persisted, so it survives closing the app, restarting your phone, or
+   never opening Bored Phone again until the 24 hours are up. It's also
+   checked against your phone's own uptime clock, so setting the date
+   forward in Settings doesn't skip it (Strict Mode in §4 blocks that
+   directly anyway, while locked).
+4. Once the 24 hours pass, reopen the same link: a real **"Unlock Bored
+   Phone now"** button appears and unlocks it immediately, right there —
+   no need to go anywhere else. You can also cancel a pending request at
+   any point if you change your mind, which doesn't unlock anything early,
+   it just stops the clock.
 
 That's on purpose. If the instructions were easy to find, "I locked myself
 out and I'm at work" would become the standard excuse to undo the entire
 point of this app. Use it when you mean it.
+
+Worth being upfront about: this 24-hour gate applies to the path *this app
+teaches*. It can't gate the `Settings → Screen Time → Stop Using Screen
+Time` route itself — as covered in §4, Apple keeps that always available
+for any self-managed app, and it requires no special knowledge once
+someone's used Screen Time before. The wait exists to raise the bar on the
+route most people will actually take, not to claim a technical impossibility
+that iOS doesn't allow any app to make.
 
 Other recovery routes, for completeness:
 
