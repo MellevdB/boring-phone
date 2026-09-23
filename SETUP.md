@@ -21,6 +21,10 @@ Do these once, in order, after installing the app from Xcode. ~15 minutes.
      but tapping each app you actually want individually keeps the allow
      list small on purpose, which is the whole point.
 
+   Websites you pick here aren't just along for the ride: any site you
+   select stays reachable in Safari while locked, and every other site
+   gets blocked — the same allow-list logic as the apps above.
+
    **Important: also select Bored Phone itself and the Shortcuts app** —
    otherwise the app shields itself and your escape hatches along with
    everything else. iOS's app picker doesn't let anyone (including us)

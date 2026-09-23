@@ -131,12 +131,12 @@
         }
       }
     },
-    "These stay reachable once you lock with your tag. Phone, Messages and Settings are always reachable — iOS never lets them be blocked.": {
+    "These stay reachable once you lock with your tag. Phone, Messages and Settings are always reachable — iOS never lets them be blocked. Websites you pick here stay reachable in Safari too; every other site gets blocked while locked.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Deze blijven bereikbaar zodra je vergrendelt met je tag. Telefoon, Berichten en Instellingen zijn altijd bereikbaar — iOS laat nooit toe dat die geblokkeerd worden."
+            "value": "Deze blijven bereikbaar zodra je vergrendelt met je tag. Telefoon, Berichten en Instellingen zijn altijd bereikbaar — iOS laat nooit toe dat die geblokkeerd worden. Websites die je hier kiest blijven ook bereikbaar in Safari; elke andere site wordt geblokkeerd zodra je vergrendelt."
           }
         }
       }
@@ -221,12 +221,12 @@
         }
       }
     },
-    "Tip: tap individual apps rather than \"Select All\" then deselecting — that keeps the list small on purpose. The picker also shows apps and sites Apple knows about generally, not just ones installed on this phone; ones you don't recognize are harmless to ignore.": {
+    "Tip: tap individual apps rather than \"Select All\" then deselecting — that keeps the list small on purpose. The picker also shows apps and sites Apple knows about generally, not just ones installed on this phone; ones you don't recognize are harmless to ignore. Any website you do select here stays open in Safari while locked — every other site gets blocked.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tip: tik losse apps aan in plaats van \"Selecteer alles\" en dan weer uitvinken — zo blijft de lijst expres klein. De kiezer toont ook apps en sites die Apple kent in het algemeen, niet alleen wat op deze telefoon staat; onbekende items kun je gewoon negeren."
+            "value": "Tip: tik losse apps aan in plaats van \"Selecteer alles\" en dan weer uitvinken — zo blijft de lijst expres klein. De kiezer toont ook apps en sites die Apple kent in het algemeen, niet alleen wat op deze telefoon staat; onbekende items kun je gewoon negeren. Elke website die je hier selecteert blijft open in Safari zodra je vergrendelt — elke andere site wordt geblokkeerd."
           }
         }
       }

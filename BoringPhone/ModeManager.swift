@@ -160,8 +160,9 @@ final class ModeManager: ObservableObject {
         }
     }
 
-    /// Shields every app category except the explicitly allowed apps, and
-    /// adds a few extra restrictions while locked. None of these are an
+    /// Shields every app category except the explicitly allowed apps, blocks
+    /// every website in Safari except the explicitly allowed ones, and adds
+    /// a few extra restrictions while locked. None of these are an
     /// absolute guarantee under individual (self-managed) authorization —
     /// Apple always lets a user revoke Screen Time access for their own
     /// apps via Settings, specifically so a self-installed app can never
@@ -172,7 +173,7 @@ final class ModeManager: ObservableObject {
     private func applyShield() {
         if isBoringModeOn {
             store.shield.applicationCategories = .all(except: allowedSelection.applicationTokens)
-            store.shield.webDomainCategories = nil
+            store.shield.webDomainCategories = .all(except: allowedSelection.webDomainTokens)
             store.application.denyAppRemoval = true
             store.account.lockAccounts = true
             store.dateAndTime.requireAutomaticDateAndTime = true

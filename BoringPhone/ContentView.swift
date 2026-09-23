@@ -191,17 +191,18 @@ struct ContentView: View {
                             .font(.system(size: 15, weight: .semibold))
                             .foregroundStyle(theme.textPrimary)
                         Spacer()
-                        Text("\(modeManager.allowedSelection.applicationTokens.count + modeManager.allowedSelection.categoryTokens.count)")
+                        Text("\(modeManager.allowedSelection.applicationTokens.count + modeManager.allowedSelection.categoryTokens.count + modeManager.allowedSelection.webDomainTokens.count)")
                             .font(.system(size: 15, weight: .semibold, design: .rounded))
                             .foregroundStyle(theme.accent)
                     }
 
                     if !modeManager.allowedSelection.applicationTokens.isEmpty
-                        || !modeManager.allowedSelection.categoryTokens.isEmpty {
+                        || !modeManager.allowedSelection.categoryTokens.isEmpty
+                        || !modeManager.allowedSelection.webDomainTokens.isEmpty {
                         selectedAppsList
                     }
 
-                    Text("These stay reachable once you lock with your tag. Phone, Messages and Settings are always reachable — iOS never lets them be blocked.")
+                    Text("These stay reachable once you lock with your tag. Phone, Messages and Settings are always reachable — iOS never lets them be blocked. Websites you pick here stay reachable in Safari too; every other site gets blocked while locked.")
                         .font(.system(size: 13))
                         .foregroundStyle(theme.textSecondary)
 
@@ -218,7 +219,7 @@ struct ContentView: View {
                     }
                     .buttonStyle(.plain)
 
-                    Text("Tip: tap individual apps rather than \"Select All\" then deselecting — that keeps the list small on purpose. The picker also shows apps and sites Apple knows about generally, not just ones installed on this phone; ones you don't recognize are harmless to ignore.")
+                    Text("Tip: tap individual apps rather than \"Select All\" then deselecting — that keeps the list small on purpose. The picker also shows apps and sites Apple knows about generally, not just ones installed on this phone; ones you don't recognize are harmless to ignore. Any website you do select here stays open in Safari while locked — every other site gets blocked.")
                         .font(.system(size: 11.5))
                         .foregroundStyle(theme.textSecondary.opacity(0.8))
                 }
@@ -248,6 +249,12 @@ struct ContentView: View {
                         .font(.system(size: 11))
                         .foregroundStyle(theme.textSecondary)
                 }
+            }
+            ForEach(Array(modeManager.allowedSelection.webDomainTokens), id: \.self) { token in
+                Label(token)
+                    .labelStyle(.titleAndIcon)
+                    .font(.system(size: 13))
+                    .foregroundStyle(theme.textPrimary)
             }
         }
         .padding(12)
