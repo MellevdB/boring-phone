@@ -62,6 +62,19 @@ anywhere — home screen, App Library, search, a notification — shows
 Apple's block screen regardless. You can *see* the app exists; you can't
 *open* it.
 
+**Known iOS quirk: an allowed app's icon can go blank.** Even for apps you
+*did* allow (Camera especially), toggling a Focus's Home Screen page
+filtering can occasionally corrupt that app's Home Screen icon — it shows
+blank and won't open from where it was, even though the app itself was
+never blocked. This is a general SpringBoard bug independent of Bored
+Phone (search "camera icon missing after Focus" and you'll find years of
+reports from people with no restriction apps installed at all). Fix: find
+it in the **App Library**, drag it back onto a Home Screen page — it opens
+and works normally once re-added. If it's Camera specifically, the
+**Lock Screen swipe-to-camera** or **Control Center's camera button** skip
+the Home Screen icon entirely and aren't affected by this at all — worth
+using as your default instead of hunting for the icon each time.
+
 ## 3. Create the NFC automation (the magic part)
 
 1. Open **Shortcuts** (the in-app "Open Shortcuts" button on Bored Phone's

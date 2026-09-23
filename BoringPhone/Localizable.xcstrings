@@ -71,6 +71,26 @@
         }
       }
     },
+    "Strict Mode is active": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Strikte modus is actief"
+          }
+        }
+      }
+    },
+    "Deleting this app and changing accounts or the date/time are blocked until you unlock. Settings → Screen Time can still revoke this — Apple guarantees that path always stays open, for any app.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze app verwijderen en accounts of datum/tijd wijzigen zijn geblokkeerd tot je ontgrendelt. Instellingen → Schermtijd kan dit nog steeds intrekken — Apple garandeert dat dat pad altijd open blijft, voor elke app."
+          }
+        }
+      }
+    },
     "There is no button in this app to unlock it. Tap your tag.": {
       "localizations": {
         "nl": {

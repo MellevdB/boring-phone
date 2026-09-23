@@ -148,6 +148,22 @@ struct ContentView: View {
                 }
             }
 
+            card {
+                HStack(alignment: .top, spacing: 12) {
+                    Image(systemName: "checkmark.shield.fill")
+                        .foregroundStyle(theme.accent)
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Strict Mode is active")
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundStyle(theme.textPrimary)
+                        Text("Deleting this app and changing accounts or the date/time are blocked until you unlock. Settings → Screen Time can still revoke this — Apple guarantees that path always stays open, for any app.")
+                            .font(.system(size: 12))
+                            .foregroundStyle(theme.textSecondary)
+                    }
+                    Spacer()
+                }
+            }
+
             Button {
                 showLostTagHelp = true
             } label: {
