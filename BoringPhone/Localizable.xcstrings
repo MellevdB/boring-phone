@@ -680,6 +680,16 @@
           }
         }
       }
+    },
+    "iOS couldn't renew your saved app selection. If allowed apps get blocked or blocked apps stay open, pick them again below.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS kon je opgeslagen appselectie niet vernieuwen. Als toegestane apps worden geblokkeerd of geblokkeerde apps open blijven, kies ze hieronder opnieuw."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

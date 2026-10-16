@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var authError: String?
     @State private var isRequestingAuthorization = false
     @State private var pulse = false
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         ZStack {
@@ -47,6 +48,9 @@ struct ContentView: View {
         .familyActivityPicker(isPresented: $showBlockPicker, selection: $modeManager.blockedSelection)
         .sheet(isPresented: $showLostTagHelp) {
             LostTagHelpSheet()
+        }
+        .onChange(of: scenePhase) { phase in
+            if phase == .active { modeManager.refreshExpiredTokens() }
         }
         .task {
             withAnimation(.easeInOut(duration: 2.2).repeatForever(autoreverses: true)) {
@@ -187,6 +191,19 @@ struct ContentView: View {
             if !modeManager.includesSelfAndShortcuts {
                 requiredAppsCallout
                     .transition(.opacity.combined(with: .move(edge: .top)))
+            }
+
+            if modeManager.selectionNeedsRepick {
+                card {
+                    HStack(alignment: .top, spacing: 12) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .foregroundStyle(.red)
+                        Text("iOS couldn't renew your saved app selection. If allowed apps get blocked or blocked apps stay open, pick them again below.")
+                            .font(.system(size: 13))
+                            .foregroundStyle(theme.textPrimary)
+                        Spacer()
+                    }
+                }
             }
 
             if modeManager.selectedItemCount > ModeManager.maxSelectedItems {

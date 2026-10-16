@@ -82,6 +82,13 @@ final class ModeManager: ObservableObject {
     /// app is never opened.
     @Published private(set) var emergencyUnlockRequestedAt: Date?
 
+    /// Set when iOS reported our saved selection could not be refreshed
+    /// (iOS 26.5+ lets saved app tokens expire). Allowed apps might then be
+    /// blocked or "always block" apps unshielded until they are picked again.
+    @Published private(set) var selectionNeedsRepick = false
+
+    private var tokenExpiryObservation: Any?
+
     private init() {
         isBoringModeOn = defaults.bool(forKey: Keys.boringModeOn)
         if let data = defaults.data(forKey: Keys.selection),
@@ -97,7 +104,60 @@ final class ModeManager: ObservableObject {
             blockedSelection = FamilyActivitySelection()
         }
         emergencyUnlockRequestedAt = defaults.object(forKey: Keys.emergencyRequestedAt) as? Date
+        refreshExpiredTokens()
         applyShield()
+        observeTokenExpiry()
+    }
+
+    private func observeTokenExpiry() {
+        guard #available(iOS 26.5, *) else { return }
+        tokenExpiryObservation = NotificationCenter.default.addObserver(
+            of: ManagedSettingsStore.self,
+            for: .tokensDidExpire
+        ) { _ in
+            await MainActor.run { ModeManager.shared.refreshExpiredTokens() }
+        }
+    }
+
+    /// Asks iOS to renew saved tokens that expired (iOS 26.5+). A renewed
+    /// array is only adopted if it has the same number of tokens, so a
+    /// misbehaving refresh can never silently shrink the user's lists.
+    /// A refresh that throws means the user has to pick again.
+    func refreshExpiredTokens() {
+        guard #available(iOS 26.5, *) else { return }
+        var failed = false
+
+        var allowedApps = Array(allowedSelection.applicationTokens)
+        let allowedAppsBefore = allowedApps.count
+        if !allowedApps.isEmpty {
+            do { try ManagedSettingsStore.refresh(&allowedApps) } catch { failed = true }
+        }
+        if !failed, allowedApps.count == allowedAppsBefore,
+           Set(allowedApps) != allowedSelection.applicationTokens {
+            allowedSelection.applicationTokens = Set(allowedApps)
+        }
+
+        var allowedWeb = Array(allowedSelection.webDomainTokens)
+        let allowedWebBefore = allowedWeb.count
+        if !allowedWeb.isEmpty {
+            do { try ManagedSettingsStore.refresh(&allowedWeb) } catch { failed = true }
+        }
+        if !failed, allowedWeb.count == allowedWebBefore,
+           Set(allowedWeb) != allowedSelection.webDomainTokens {
+            allowedSelection.webDomainTokens = Set(allowedWeb)
+        }
+
+        var blockedApps = Array(blockedSelection.applicationTokens)
+        let blockedAppsBefore = blockedApps.count
+        if !blockedApps.isEmpty {
+            do { try ManagedSettingsStore.refresh(&blockedApps) } catch { failed = true }
+        }
+        if !failed, blockedApps.count == blockedAppsBefore,
+           Set(blockedApps) != blockedSelection.applicationTokens {
+            blockedSelection.applicationTokens = Set(blockedApps)
+        }
+
+        if selectionNeedsRepick != failed { selectionNeedsRepick = failed }
     }
 
     var isAuthorized: Bool {
@@ -151,6 +211,7 @@ final class ModeManager: ObservableObject {
     func lock() throws {
         guard !isBoringModeOn else { return }
         guard isAuthorized else { throw LockError.notAuthorized }
+        refreshExpiredTokens()
         guard selectedItemCount <= Self.maxSelectedItems else { throw LockError.tooManySelected }
         isBoringModeOn = true
         if !isShieldApplied {
