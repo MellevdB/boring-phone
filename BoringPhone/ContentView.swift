@@ -9,6 +9,7 @@ struct ContentView: View {
     @Binding var language: AppLanguage
 
     @State private var showPicker = false
+    @State private var showBlockPicker = false
     @State private var showLostTagHelp = false
     @State private var showHomeScreenDetails = false
     @State private var authError: String?
@@ -30,6 +31,9 @@ struct ContentView: View {
                             configCard
                         }
                     } else {
+                        if modeManager.isBoringModeOn {
+                            revokedWarningCard
+                        }
                         authorizationCard
                     }
                     setupCard
@@ -40,6 +44,7 @@ struct ContentView: View {
             }
         }
         .familyActivityPicker(isPresented: $showPicker, selection: $modeManager.allowedSelection)
+        .familyActivityPicker(isPresented: $showBlockPicker, selection: $modeManager.blockedSelection)
         .sheet(isPresented: $showLostTagHelp) {
             LostTagHelpSheet()
         }
@@ -184,6 +189,19 @@ struct ContentView: View {
                     .transition(.opacity.combined(with: .move(edge: .top)))
             }
 
+            if modeManager.selectedItemCount > ModeManager.maxSelectedItems {
+                card {
+                    HStack(alignment: .top, spacing: 12) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .foregroundStyle(.red)
+                        Text("Too many apps and sites selected (\(modeManager.selectedItemCount) — the limit is \(ModeManager.maxSelectedItems) in total). Above that, iOS silently stops blocking anything, so Bored Phone refuses to lock until you remove some.")
+                            .font(.system(size: 13))
+                            .foregroundStyle(theme.textPrimary)
+                        Spacer()
+                    }
+                }
+            }
+
             card {
                 VStack(alignment: .leading, spacing: 16) {
                     HStack {
@@ -224,8 +242,68 @@ struct ContentView: View {
                         .foregroundStyle(theme.textSecondary.opacity(0.8))
                 }
             }
+
+            alwaysBlockCard
         }
         .animation(.easeInOut(duration: 0.25), value: modeManager.includesSelfAndShortcuts)
+    }
+
+    private var alwaysBlockCard: some View {
+        card {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Text("Always block")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(theme.textPrimary)
+                    Spacer()
+                    Text("\(modeManager.blockedSelection.applicationTokens.count)")
+                        .font(.system(size: 15, weight: .semibold, design: .rounded))
+                        .foregroundStyle(theme.accent)
+                }
+                if !modeManager.blockedSelection.applicationTokens.isEmpty {
+                    VStack(alignment: .leading, spacing: 8) {
+                        ForEach(Array(modeManager.blockedSelection.applicationTokens), id: \.self) { token in
+                            Label(token)
+                                .labelStyle(.titleAndIcon)
+                                .font(.system(size: 13))
+                                .foregroundStyle(theme.textPrimary)
+                        }
+                    }
+                    .padding(12)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(theme.buttonSecondaryFill)
+                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                }
+                Text("Some apps can stay open even while locked — usually ones on your Always Allowed list in Settings → Screen Time. Pick them here to block them directly. (Phone and Settings can never be blocked.)")
+                    .font(.system(size: 13))
+                    .foregroundStyle(theme.textSecondary)
+                Button {
+                    showBlockPicker = true
+                } label: {
+                    Text("Choose apps to always block")
+                        .font(.system(size: 15, weight: .semibold))
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 13)
+                        .background(theme.buttonSecondaryFill)
+                        .foregroundStyle(theme.textPrimary)
+                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                }
+                .buttonStyle(.plain)
+            }
+        }
+    }
+
+    private var revokedWarningCard: some View {
+        card {
+            HStack(alignment: .top, spacing: 12) {
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .foregroundStyle(.red)
+                Text("Screen Time access was switched off, so nothing is being blocked right now. Tap Continue below to turn it back on.")
+                    .font(.system(size: 13))
+                    .foregroundStyle(theme.textPrimary)
+                Spacer()
+            }
+        }
     }
 
     /// Shows exactly what's selected as a plain list — the system picker's

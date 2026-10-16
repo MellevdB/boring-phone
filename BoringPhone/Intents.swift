@@ -18,7 +18,7 @@ struct ToggleBoringModeIntent: AppIntent {
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let manager = ModeManager.shared
-        manager.toggle()
+        try manager.toggle()
         let dialog: IntentDialog = manager.isBoringModeOn
             ? "Bored Phone on. See you on the other side."
             : "Bored Phone off. Welcome back."
@@ -33,7 +33,7 @@ struct EnableBoringModeIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        ModeManager.shared.setBoringMode(true)
+        try ModeManager.shared.lock()
         return .result(dialog: "Bored Phone on.")
     }
 }
@@ -45,7 +45,7 @@ struct DisableBoringModeIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        ModeManager.shared.setBoringMode(false)
+        ModeManager.shared.unlock()
         return .result(dialog: "Bored Phone off.")
     }
 }

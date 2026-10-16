@@ -600,6 +600,86 @@
           }
         }
       }
+    },
+    "Bored Phone can't lock: Screen Time access is off. Open Bored Phone and tap Continue.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bored Phone kan niet vergrendelen: Schermtijd-toegang staat uit. Open Bored Phone en tik op Doorgaan."
+          }
+        }
+      }
+    },
+    "Bored Phone can't lock: too many apps and sites are selected (limit 50 in total). Open Bored Phone and remove some.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bored Phone kan niet vergrendelen: er zijn te veel apps en sites geselecteerd (maximaal 50 in totaal). Open Bored Phone en haal er een paar weg."
+          }
+        }
+      }
+    },
+    "Bored Phone couldn't switch the Screen Time shield on, so it stayed unlocked. Open Bored Phone and pick your allowed apps again.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bored Phone kon de Schermtijd-blokkade niet inschakelen en bleef daarom ontgrendeld. Open Bored Phone en kies je toegestane apps opnieuw."
+          }
+        }
+      }
+    },
+    "Too many apps and sites selected (%lld — the limit is %lld in total). Above that, iOS silently stops blocking anything, so Bored Phone refuses to lock until you remove some.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Te veel apps en sites geselecteerd (%lld — het maximum is %lld in totaal). Daarboven stopt iOS stilletjes met blokkeren, dus Bored Phone weigert te vergrendelen totdat je er een paar weghaalt."
+          }
+        }
+      }
+    },
+    "Always block": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altijd blokkeren"
+          }
+        }
+      }
+    },
+    "Some apps can stay open even while locked — usually ones on your Always Allowed list in Settings → Screen Time. Pick them here to block them directly. (Phone and Settings can never be blocked.)": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sommige apps blijven open, ook als je vergrendeld bent — meestal apps op je lijst Altijd toegestaan in Instellingen → Schermtijd. Kies ze hier om ze direct te blokkeren. (Telefoon en Instellingen kunnen nooit geblokkeerd worden.)"
+          }
+        }
+      }
+    },
+    "Choose apps to always block": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kies apps om altijd te blokkeren"
+          }
+        }
+      }
+    },
+    "Screen Time access was switched off, so nothing is being blocked right now. Tap Continue below to turn it back on.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schermtijd-toegang is uitgezet, dus er wordt nu niets geblokkeerd. Tik hieronder op Doorgaan om het weer aan te zetten."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

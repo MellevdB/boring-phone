@@ -25,6 +25,25 @@ Do these once, in order, after installing the app from Xcode. ~15 minutes.
    select stays reachable in Safari while locked, and every other site
    gets blocked — the same allow-list logic as the apps above.
 
+   **Keep the total under 50.** iOS silently stops blocking *anything* once
+   a shield holds more than about 50 apps and sites (a limit reported by
+   developers, not documented by Apple). So Bored Phone counts your allowed
+   apps + allowed websites + "always block" apps, warns when you go over,
+   and refuses to lock rather than show LOCKED over an open phone. "Select
+   All" and then deselecting is the usual way to hit this — don't.
+
+   **Some apps can stay open even while locked.** The "everything except
+   my list" shield skips apps on your **Settings → Screen Time → Always
+   Allowed** list (Messages and Maps are on it by default) and a few system
+   apps. Two fixes: remove them from Always Allowed there, and/or add them
+   under **Always block** in Bored Phone, which shields them directly
+   (that overrides Always Allowed). Phone and Settings can never be blocked.
+
+   If a tag tap can't really lock (Screen Time access off, too many apps
+   selected, or the shield failing to switch on), the shortcut now stops
+   with a message and the Focus does *not* turn on — it no longer claims
+   LOCKED while everything is open.
+
    **Important: also select Bored Phone itself and the Shortcuts app** —
    otherwise the app shields itself and your escape hatches along with
    everything else. iOS's app picker doesn't let anyone (including us)

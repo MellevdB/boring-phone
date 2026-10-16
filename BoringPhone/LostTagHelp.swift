@@ -162,7 +162,7 @@ struct LostTagHelpSheet: View {
             .padding(.bottom, 4)
 
             Button {
-                modeManager.setBoringMode(false)
+                modeManager.unlock()
                 dismiss()
             } label: {
                 Text("Unlock Bored Phone now")

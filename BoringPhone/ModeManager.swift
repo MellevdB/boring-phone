@@ -3,11 +3,28 @@ import Combine
 import FamilyControls
 import ManagedSettings
 
+enum LockError: Error, CustomLocalizedStringResourceConvertible {
+    case notAuthorized
+    case tooManySelected
+    case shieldDidNotApply
+
+    var localizedStringResource: LocalizedStringResource {
+        switch self {
+        case .notAuthorized:
+            return "Bored Phone can't lock: Screen Time access is off. Open Bored Phone and tap Continue."
+        case .tooManySelected:
+            return "Bored Phone can't lock: too many apps and sites are selected (limit 50 in total). Open Bored Phone and remove some."
+        case .shieldDidNotApply:
+            return "Bored Phone couldn't switch the Screen Time shield on, so it stayed unlocked. Open Bored Phone and pick your allowed apps again."
+        }
+    }
+}
+
 /// Owns all boring-mode state: the allow-list of apps, whether boring mode is
 /// active, and applying/clearing the Screen Time shield.
 ///
 /// There is deliberately no quick "manual unlock" path here that the app's
-/// own UI can reach. `setBoringMode`/`toggle` exist for the App Intents in
+/// own UI can reach. `lock`/`unlock`/`toggle` exist for the App Intents in
 /// Intents.swift (called exclusively by the Shortcuts NFC automation) and
 /// for the 24-hour emergency unlock in LostTagHelp.swift — nothing else in
 /// this app calls them, so locking and unlocking always goes through the
@@ -21,6 +38,7 @@ final class ModeManager: ObservableObject {
     private enum Keys {
         static let boringModeOn = "boringModeOn"
         static let selection = "allowedSelection"
+        static let blockedSelection = "blockedSelection"
         static let emergencyRequestedAt = "emergencyUnlockRequestedAt"
         static let emergencyRequestedUptime = "emergencyUnlockRequestedUptime"
     }
@@ -45,6 +63,19 @@ final class ModeManager: ObservableObject {
         }
     }
 
+    /// Apps that must be shielded directly, on top of the "everything except
+    /// the allow-list" category shield. A category shield skips apps on the
+    /// user's Always Allowed list (and some system apps); a directly
+    /// selected app is shielded regardless.
+    @Published var blockedSelection: FamilyActivitySelection {
+        didSet {
+            if let data = try? JSONEncoder().encode(blockedSelection) {
+                defaults.set(data, forKey: Keys.blockedSelection)
+            }
+            applyShield()
+        }
+    }
+
     /// When a "lost my tag" emergency unlock is pending, when it was
     /// requested (wall-clock). Persisted so it survives the app being
     /// killed, the phone rebooting, or 24 hours simply passing while the
@@ -59,12 +90,33 @@ final class ModeManager: ObservableObject {
         } else {
             allowedSelection = FamilyActivitySelection()
         }
+        if let data = defaults.data(forKey: Keys.blockedSelection),
+           let saved = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data) {
+            blockedSelection = saved
+        } else {
+            blockedSelection = FamilyActivitySelection()
+        }
         emergencyUnlockRequestedAt = defaults.object(forKey: Keys.emergencyRequestedAt) as? Date
         applyShield()
     }
 
     var isAuthorized: Bool {
-        AuthorizationCenter.shared.authorizationStatus == .approved
+        let status = AuthorizationCenter.shared.authorizationStatus
+        if status == .approved { return true }
+        if #available(iOS 26.4, *), status == .approvedWithDataAccess { return true }
+        return false
+    }
+
+    /// iOS silently stops shielding anything once a store holds more than
+    /// about 50 tokens (forum-reported, apps and websites combined), so the
+    /// app refuses to lock above this rather than show LOCKED over an open
+    /// phone.
+    static let maxSelectedItems = 50
+
+    var selectedItemCount: Int {
+        allowedSelection.applicationTokens.count
+            + allowedSelection.webDomainTokens.count
+            + blockedSelection.applicationTokens.count
     }
 
     private static let shortcutsBundleID = "com.apple.shortcuts"
@@ -94,18 +146,33 @@ final class ModeManager: ObservableObject {
         objectWillChange.send()
     }
 
-    func setBoringMode(_ on: Bool) {
-        guard isBoringModeOn != on else { return }
-        isBoringModeOn = on
-        if !on {
-            // Unlocked (tag found, or the emergency wait completed) — any
-            // pending emergency request is no longer relevant.
-            cancelEmergencyUnlockRequest()
+    /// Locks only if the shield can really be applied; throws otherwise so
+    /// the Shortcuts automation stops before it turns the Focus on.
+    func lock() throws {
+        guard !isBoringModeOn else { return }
+        guard isAuthorized else { throw LockError.notAuthorized }
+        guard selectedItemCount <= Self.maxSelectedItems else { throw LockError.tooManySelected }
+        isBoringModeOn = true
+        if !isShieldApplied {
+            isBoringModeOn = false
+            throw LockError.shieldDidNotApply
         }
     }
 
-    func toggle() {
-        isBoringModeOn.toggle()
+    func unlock() {
+        guard isBoringModeOn else { return }
+        isBoringModeOn = false
+        // Unlocked (tag found, or the emergency wait completed) — any
+        // pending emergency request is no longer relevant.
+        cancelEmergencyUnlockRequest()
+    }
+
+    func toggle() throws {
+        if isBoringModeOn { unlock() } else { try lock() }
+    }
+
+    var isShieldApplied: Bool {
+        store.shield.applicationCategories != nil
     }
 
     // MARK: - Emergency unlock (24-hour wait)
@@ -174,6 +241,8 @@ final class ModeManager: ObservableObject {
         if isBoringModeOn {
             store.shield.applicationCategories = .all(except: allowedSelection.applicationTokens)
             store.shield.webDomainCategories = .all(except: allowedSelection.webDomainTokens)
+            store.shield.applications = blockedSelection.applicationTokens
+                .subtracting(allowedSelection.applicationTokens)
             store.application.denyAppRemoval = true
             store.account.lockAccounts = true
             store.dateAndTime.requireAutomaticDateAndTime = true
