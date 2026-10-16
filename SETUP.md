@@ -149,15 +149,21 @@ a piece of malware that could lock itself in place forever). True
 tamper-proof enforcement only exists for supervised/child devices under
 Family Sharing, which isn't what a personal focus app should require.
 
-So: Strict Mode stops the *casual* "long-press and delete" impulse and the
-naive clock trick, but the Settings route always remains — same as it
-always has. Optional extra step if you want more friction on top:
+So: Strict Mode alone stops the *casual* "long-press and delete" impulse
+and the naive clock trick, but the Settings toggle stays open. The only
+thing that closes it is Apple's own Screen Time passcode — this is also how
+every NFC/puck blocker (Freedom, Brick, Unpluq…) does it; none of them can
+block the toggle from inside the app:
 
 - **Settings → Screen Time → Lock Screen Time Settings** — set a Screen
-  Time passcode. Best: have a partner/friend set it so you don't know it,
-  or use a random code stored somewhere inconvenient (paper in a drawer at
-  home). This doesn't close the Settings route either — it just means
-  whoever holds the passcode has to be involved.
+  Time passcode. On **iOS 26.4 or later** this makes iOS ask for that
+  passcode before it will turn off Bored Phone's Screen Time access (on
+  older iOS the passcode doesn't protect individual apps). Test it: go to
+  Settings → Screen Time → Bored Phone and try to switch it off — you
+  should get a passcode prompt. Best: have a partner/friend set the code so
+  you don't know it, or use a random code stored somewhere inconvenient
+  (paper in a drawer at home). Whoever holds the passcode can still undo
+  it; that's the design.
 
 ## 5. Daily use
 
